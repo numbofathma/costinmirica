@@ -1,5 +1,110 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #282931;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Varela Round', sans-serif;
+    height: 100%;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Varela Round', sans-serif;
+    color: #FC3565;
+    padding-bottom: 0;
+    margin-bottom: 1%;
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+h2 {
+    color: #E6E6E6;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 15px 0;
+}
+
+p {
+    color: #E6E6E6;
+    margin-top: 1rem;
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none !important;
+}
+
+li {
+    color: #222222;
+    font-size: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    color: #FC3565;
+    transition: .5s;
+}
+
+.error {
+    font-size: 1.5rem;
+    color: #FC3565;
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.purple {
+    color: #FC3565;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.big {
+    font-size: 1.5em;
+}
+
+.bigger {
+    font-size: 2em;
+}
+
+.huge {
+    font-size: 3em;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
+.swal2-popup .swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: .25em;
+    background-color: #FC3565;
+    color: #FFFFFF;
+    font-size: 1.15rem;
 }
