@@ -19,6 +19,7 @@ export const TextInputAreaStyled = styled(TextInputArea)`
     line-height: 1.65;
     min-width: 100%;
     min-height: 25rem;
+    font-family: 'Varela Round', sans-serif;
     
     &:focus {
         border-color: #f76f91;

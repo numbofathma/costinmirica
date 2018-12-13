@@ -29,6 +29,7 @@ export const TextInputStyled = styled(TextInput)`
     font-weight: 300;
     letter-spacing: 0.025em;
     line-height: 1.65;
+    font-family: 'Varela Round', sans-serif;
 
     &:focus {
         border-color: #f76f91;
