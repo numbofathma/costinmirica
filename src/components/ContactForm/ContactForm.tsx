@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Column, Form, Row} from 'react-skeleton-ui';
+import {Column, Row} from 'react-skeleton-ui/src/Grid';
+import {Form} from 'react-skeleton-ui/src/Forms';
 import {LoaderStyled} from './style';
 import FormInput from "../FormInput";
 import FormTextarea from "../FormTextarea";

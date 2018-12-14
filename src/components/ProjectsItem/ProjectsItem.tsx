@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ListItem} from 'react-skeleton-ui';
+import {ListItem} from 'react-skeleton-ui/src/Lists';
 import {ProjectIcon, ProjectIconWrapper} from "./style";
 
 interface ProjectItemProps {

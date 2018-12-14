@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {UnOrderedList} from 'react-skeleton-ui';
+import {UnOrderedList} from 'react-skeleton-ui/src/Lists';
 import ProjectsItem from "../ProjectsItem/ProjectsItem";
 import {ProjectItemInterface} from "../../interfaces/interfaces";
 import ProjectRepository from "../../repositories/ProjectRepository";

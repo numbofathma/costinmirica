@@ -1,4 +1,12 @@
+html {
+    font-size: 62.5%;
+}
+
 body {
+    font-size: 1.4em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    line-height: 1.6;
+    font-weight: 400;
+    color: #222;
     margin: 0;
     padding: 0;
     background: #282931;
@@ -8,7 +16,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Varela Round', sans-serif;
     height: 100%;
-    font-weight: 400;
 }
 
 h1 {
@@ -104,7 +111,7 @@ a {
 .swal2-popup .swal2-styled.swal2-confirm {
     border: 0;
     border-radius: .25em;
-    background-color: #FC3565;
+    background-color: #FC3565!important;
     color: #FFFFFF;
     font-size: 1.15rem;
 }

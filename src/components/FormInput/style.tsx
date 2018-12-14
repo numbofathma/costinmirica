@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Label, TextInput} from 'react-skeleton-ui';
+import {Label} from "react-skeleton-ui/src/Forms";
 
 export const LabelStyled = styled(Label)`
     color: #ffffff;
@@ -12,7 +12,12 @@ export const LabelStyled = styled(Label)`
     cursor: pointer;
 `;
 
-export const TextInputStyled = styled(TextInput)`
+export const TextInputStyled = styled.input`
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
     appearance: none;
     background: rgba(212, 212, 255, 0.035);
     border: none;
@@ -34,5 +39,6 @@ export const TextInputStyled = styled(TextInput)`
     &:focus {
         border-color: #f76f91;
         box-shadow: 0 0 0 2px #f76f91;
+        outline: 0;
     }
 `;

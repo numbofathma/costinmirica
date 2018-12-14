@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Button} from 'react-skeleton-ui';
+import {Button} from 'react-skeleton-ui/src/Buttons';
 
 export const ButtonStyled = styled(Button)`
     border-radius: 0;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TextInputArea} from 'react-skeleton-ui';
+import {TextInputArea} from 'react-skeleton-ui/src/Forms';
 
 export const TextInputAreaStyled = styled(TextInputArea)`
     appearance: none;

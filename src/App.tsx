@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Column, Grid, Row} from "react-skeleton-ui";
+import {Column, Grid, Row} from "react-skeleton-ui/src/Grid";
 import ContactFrom from './components/ContactForm';
 import ProjectsList from "./components/ProjectsList";
 import SkillsList from "./components/SkillsList";
