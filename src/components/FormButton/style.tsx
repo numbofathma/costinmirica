@@ -20,6 +20,7 @@ export const ButtonStyled = styled(Button)`
     text-transform: uppercase;
     white-space: nowrap;
     margin-bottom: 2rem;
+    font-family: 'Varela Round', sans-serif;
     
     &:hover, &:active, &:visited {
         border-bottom-color: transparent!important;

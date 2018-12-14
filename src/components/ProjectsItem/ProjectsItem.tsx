@@ -11,14 +11,14 @@ interface ProjectItemProps {
 
 const ProjectsItem = (props: ProjectItemProps) => (
     <ListItem className="mt-2">
-        <a href={props.url} title={props.title}>
+        <a href={props.url} title={props.title} target="_blank">
             <ProjectIconWrapper>
                 <ProjectIcon icon={props.icon}/>
                 {props.title}
             </ProjectIconWrapper>
         </a>
         <p>
-            {props.text} <a href={props.url} title={props.title}>Try it!</a>
+            {props.text} <a href={props.url} title={props.title} target="_blank">Try it!</a>
         </p>
     </ListItem>
 );
