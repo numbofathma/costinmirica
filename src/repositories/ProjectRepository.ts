@@ -18,7 +18,7 @@ const projects: ProjectItemInterface[] = [
     },
     {
         title: 'Pop Pop Bubble Wrap',
-        url: 'http://playpaws.eu',
+        url: 'http://popbub.eu',
         icon: bubblewrap,
         text: `Pop Pop Bubble Wrap is a mobile game developed in JavaScript with Phaser Framework, available on both Android and iOS platform. The application is a bubble wrap popping simulator that can be used for reducing one' stress and anxiety.`
     },
