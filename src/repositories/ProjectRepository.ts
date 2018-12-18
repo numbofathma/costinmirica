@@ -1,7 +1,7 @@
 import {ProjectItemInterface} from "../interfaces/interfaces";
-import paws from "../assets/img/projects/paws.png";
-import giftrush from "../assets/img/projects/giftrush.png";
-import bubblewrap from "../assets/img/projects/bubblewrap.png";
+import paws from "../assets/img/projects/paws.jpg";
+import giftrush from "../assets/img/projects/giftrush.jpg";
+import bubblewrap from "../assets/img/projects/bubblewrap.jpg";
 
 const projects: ProjectItemInterface[] = [
     {
