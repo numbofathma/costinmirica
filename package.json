@@ -24,7 +24,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now --name costinmirica --regions bru"
   },
   "devDependencies": {
     "@types/jest": "^23.3.14",
