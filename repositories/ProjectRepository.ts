@@ -32,7 +32,7 @@ const projects: ProjectItem[] = [
         url: 'https://roninmobile.eu/twin-dots-challenge',
         icon: twindots,
         text: 'Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both Android and' +
-        ' iOS platform. For building the game for both platforms (Andoird & iOS) I\'ve used the Codova Project.'
+        ' iOS platform. For building the game for both platforms (Android & iOS) I\'ve used the Cordova Project.'
     },
 ];
 
