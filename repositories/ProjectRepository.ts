@@ -2,6 +2,7 @@ import {ProjectItem} from '../interfaces/interfaces';
 import paws from '../static/img/projects/paws.jpg';
 import giftrush from '../static/img/projects/giftrush.jpg';
 import bubblewrap from '../static/img/projects/bubblewrap.jpg';
+import twindots from '../static/img/projects/twindots.jpg';
 
 const projects: ProjectItem[] = [
     {
@@ -16,15 +17,22 @@ const projects: ProjectItem[] = [
         title: 'Gift Rush - Save Christmas',
         url: 'http://giftrush.eu',
         icon: giftrush,
-        text: 'Christmas-themed game, developed using JavaScript and the Phaser Framework and wrapped in Ludei\'s Cocoon JS environment in ' +
+        text: 'Christmas-themed game, developed using TypeScript and the Phaser Framework and wrapped in Cordova in ' +
             'order to target multiple mobile platforms.'
     },
     {
         title: 'Pop Pop Bubble Wrap',
         url: 'http://popbub.eu',
         icon: bubblewrap,
-        text: 'Pop Pop Bubble Wrap is a mobile game developed in JavaScript with Phaser Framework, available on both Android and iOS platform. ' +
-            'The application is a bubble wrap popping simulator that can be used for reducing one\' stress and anxiety.'
+        text: 'Pop Pop Bubble Wrap is a mobile game developed in TypeScript with Phaser Framework, available on both Android and iOS platform' +
+        ' thanks to the Cordova Project. The application is a bubble wrap popping simulator that can be used for reducing one\' stress and anxiety.'
+    },
+    {
+        title: 'Twin Dots Challenge',
+        url: 'https://roninmobile.eu/twin-dots-challenge',
+        icon: twindots,
+        text: 'Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both Android and' +
+        ' iOS platform. For building the game for both platforms (Andoird & iOS) I\'ve used the Codova Project.'
     },
 ];
 
