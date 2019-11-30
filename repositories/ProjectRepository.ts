@@ -3,6 +3,7 @@ import paws from '../static/img/projects/paws.jpg';
 import giftrush from '../static/img/projects/giftrush.jpg';
 import bubblewrap from '../static/img/projects/bubblewrap.jpg';
 import twindots from '../static/img/projects/twindots.jpg';
+import arrows from '../static/img/projects/arrows.jpg';
 
 const projects: ProjectItem[] = [
     {
@@ -33,6 +34,13 @@ const projects: ProjectItem[] = [
         icon: twindots,
         text: 'Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both Android and' +
         ' iOS platform. For building the game for both platforms (Android & iOS) I\'ve used the Cordova Project.'
+    },
+    {
+        title: '13 Arrows',
+        url: 'https://roninmobile.eu/project/13-arrows',
+        icon: arrows,
+        text: '13 Arrows is a hyper casual archery game for those moments when you are bored, built with Typescript and Phaser Framework.' +
+        ' Try your best to get a higher score using the arrows you have at your disposal.'
     },
 ];
 
