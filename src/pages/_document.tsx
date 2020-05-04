@@ -44,7 +44,7 @@ export default class MyDocument extends Document {
             property="og:title"
             content="Costin Mirica - Full Stack Developer"
           />
-          <meta property="og:image" content="/costin-mirica.jpg" />
+          <meta property="og:image" content="/static/img/costin-mirica.jpg" />
           <meta
             property="og:description"
             content="Just another developer understading the world one line of code at a time."
