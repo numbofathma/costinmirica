@@ -11,15 +11,16 @@ interface ProjectItemProps {
 
 const ProjectsItem = (props: ProjectItemProps) => (
   <ListItem className="mt-2">
-    <a href={props.url} title={props.title} target="_blank">
+    <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener">
       <ProjectIconWrapper>
         <ProjectIcon icon={props.icon} />
         {props.title}
       </ProjectIconWrapper>
     </a>
     <p>
-      {props.text}{' '}
-      <a href={props.url} title={props.title} target="_blank">
+      {props.text}
+      {' '}
+      <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener">
         Try it!
       </a>
     </p>

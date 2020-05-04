@@ -14,7 +14,7 @@ interface IconProps {
 
 const LinkIcon = (props: IconProps) => {
   const Link = (
-    <a href={props.url} title={props.title} target="_blank">
+    <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener">
       <FaIcon icon={props.icon} className="huge" />
     </a>
   );
@@ -31,9 +31,7 @@ const LinkIcon = (props: IconProps) => {
         >
           {Link}
         </Tooltip>
-      ) : (
-        Link
-      )}
+      ) : Link}
     </FaIconWrapper>
   );
 };

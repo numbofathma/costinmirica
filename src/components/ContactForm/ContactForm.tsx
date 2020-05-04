@@ -159,7 +159,7 @@ class ContactFrom extends React.Component<unknown, ContactFormState> {
                 sizeUnit="px"
                 size={100}
                 color="#FFFFFF"
-                loading={true}
+                loading
               />
             </LoaderStyled>
           </Column>
