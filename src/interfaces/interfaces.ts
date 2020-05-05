@@ -27,6 +27,9 @@ export interface ContactFormErrors {
 }
 
 export interface Validator {
-  validate: (data: unknown) => boolean;
-  getErrors: () => ContactFormErrors;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  validate: (data: any) => boolean;
+  getErrors: () => FormErrors;
 }
+
+export interface FormErrors { }

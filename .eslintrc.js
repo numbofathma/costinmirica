@@ -98,6 +98,7 @@ module.exports = {
     ],
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
     "react/no-array-index-key": "warn",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
