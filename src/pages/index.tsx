@@ -20,7 +20,7 @@ interface HomePageProps {
 }
 
 class HomePage extends React.Component<HomePageProps> {
-  static async getInitialProps() {
+  static getInitialProps() {
     return {
       projects: new ProjectRepository().getAll(),
       skills: new SkillRepository().getAll(),

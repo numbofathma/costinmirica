@@ -1,11 +1,11 @@
 import * as React from 'react';
-import App from 'next/app';
+import App, { AppContext } from 'next/app';
 import Router from 'next/router';
 import withGA from 'next-ga';
 import '../../public/static/css/style.css';
 
 class MyApp extends App<unknown, unknown> {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {};
 
     if (Component.getInitialProps) {

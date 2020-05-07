@@ -8,7 +8,7 @@ interface FormTextareaProps {
   name: string;
   value: string;
   placeholder: string;
-  onChange: (e: React.FormEvent) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
 }
 

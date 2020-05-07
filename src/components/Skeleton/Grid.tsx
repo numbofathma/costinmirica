@@ -1,5 +1,32 @@
 import styled from 'styled-components';
 
+enum ColumnWidthNumber {
+  one = 1,
+  two = 2,
+  three = 3,
+  for = 4,
+  five = 5,
+  six = 6,
+  seven = 7,
+  eight = 8,
+  nine = 9,
+  ten = 10,
+  eleven = 11,
+  twelve = 12,
+}
+
+enum ColumnOffsetNumber {
+  one = 1,
+  two = 2,
+  three = 3,
+  for = 4,
+  five = 5,
+  six = 6,
+  seven = 7,
+  eight = 8,
+  nine = 9,
+}
+
 /* Column widths */
 const ColumnWidth = {
   1: '4.66666666667%',
@@ -35,7 +62,7 @@ const ColumnOffset = {
 const GutterWidth = 4;
 
 /* Helper to calculate true offset */
-const CalcOffset = (offset, first = 0) => `${ColumnOffset[offset]}${first ? 0 : GutterWidth}%`;
+const CalcOffset = (offset: ColumnOffsetNumber, first = 0) => `${ColumnOffset[offset]}${first ? 0 : GutterWidth}%`;
 
 export const Grid = styled.div`
   position: relative;
@@ -66,7 +93,7 @@ export const Column = styled.div`
     margin-left: ${(props) => (props.offset ? CalcOffset(props.offset) : `${GutterWidth}%`)};
     margin-top: 0;
     float: left;
-    width: ${(props) => ColumnWidth[props.cols]};
+    width: ${(props: {cols: ColumnWidthNumber}) => ColumnWidth[props.cols]};
     :first-child {
       margin-left: ${(props) => (props.offset ? CalcOffset(props.offset, 1) : 0)};
     }

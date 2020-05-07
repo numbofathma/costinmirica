@@ -12,7 +12,7 @@ class BackgroundParticles extends React.Component<
 unknown,
 BackgroundParticlesState
 > {
-  constructor(props) {
+  constructor(props: unknown) {
     super(props);
 
     this.state = {
@@ -67,6 +67,7 @@ BackgroundParticlesState
                 anim: {
                   enable: true,
                   speed: 1,
+                  // eslint-disable-next-line @typescript-eslint/camelcase
                   opacity_min: 0.1,
                   sync: false,
                 },

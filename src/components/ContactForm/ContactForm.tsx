@@ -6,7 +6,7 @@ import { LoaderStyled } from './style';
 import FormInput from '../FormInput';
 import FormTextarea from '../FormTextarea';
 import FormButton from '../FormButton';
-import { ContactFormErrors } from '../../interfaces/interfaces';
+import { ContactFormErrors, ContactFormFields } from '../../interfaces/interfaces';
 import ContactFormValidator from '../../services/ContactFormValidator';
 import EmailService from '../../services/EmailService';
 
@@ -22,7 +22,7 @@ interface ContactFormState {
 class ContactFrom extends React.Component<unknown, ContactFormState> {
   private contactFormValidator: ContactFormValidator;
 
-  constructor(props) {
+  constructor(props: unknown) {
     super(props);
 
     this.state = {
@@ -37,14 +37,14 @@ class ContactFrom extends React.Component<unknown, ContactFormState> {
     this.contactFormValidator = new ContactFormValidator();
   }
 
-  private handleChange = (e) => {
-    const contactFormFieldsValues = {};
-    contactFormFieldsValues[e.target.name] = e.target.value;
+  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const contactFormFieldsValues: any = {};
+    contactFormFieldsValues[e.target.name as ContactFormFields] = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
 
     this.setState(contactFormFieldsValues);
   };
 
-  private sendEmail = async (e) => {
+  private sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
 
     this.setState({

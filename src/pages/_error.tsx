@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Router from 'next/router';
+import { NextPageContext } from 'next';
 
 class ErrorPage extends React.Component {
-  static async getInitialProps({ res }) {
+  static getInitialProps({ res }: NextPageContext) {
     if (res) {
       res.writeHead(302, {
         Location: '/',

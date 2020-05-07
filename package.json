@@ -28,6 +28,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "check-types": "tsc --noemit",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier --write \"{,(src|public)/**/}*.{css,scss,json}\""

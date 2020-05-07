@@ -15,7 +15,7 @@ export const Tag = styled.span`
   border: 1px solid #ddd;
 `;
 
-export const HtmlTag = (props) => {
+export const HtmlTag = (props: {children: React.ReactChildren}) => {
   const content = `<${props.children}>`;
   return <Tag>{content}</Tag>;
 };

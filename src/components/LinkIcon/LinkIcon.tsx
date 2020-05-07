@@ -25,9 +25,6 @@ const LinkIcon = (props: IconProps) => {
         <Tooltip
           id={props.id}
           title={props.title}
-          type="light"
-          effect="solid"
-          place="bottom"
         >
           {Link}
         </Tooltip>
