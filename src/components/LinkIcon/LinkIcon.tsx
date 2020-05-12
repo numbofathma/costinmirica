@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { isMobile } from 'react-device-detect';
-import Tooltip from '../Tooltip/Tooltip';
+import Tooltip from '@components/Tooltip/Tooltip';
+import FaIcon from '@components/FaIcon';
 import { FaIconWrapper } from './style';
-import FaIcon from '../FaIcon';
 
 interface IconProps {
   id: string;

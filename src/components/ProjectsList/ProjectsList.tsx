@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { UnOrderedList } from '../Skeleton';
-import ProjectsItem from '../ProjectsItem/ProjectsItem';
-import { ProjectItem } from '../../interfaces/interfaces';
+import { UnOrderedList } from '@components/Skeleton';
+import ProjectsItem from '@components/ProjectsItem/ProjectsItem';
+import { ProjectItem } from '@interfaces/interfaces';
 
 interface ProjectListProps {
   projects: ProjectItem[];

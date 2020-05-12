@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ListItem } from '../Skeleton';
+import { ListItem } from '@components/Skeleton';
 import { ProjectIcon, ProjectIconWrapper } from './style';
 
 interface ProjectItemProps {

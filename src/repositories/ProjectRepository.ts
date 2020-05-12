@@ -1,4 +1,4 @@
-import { ProjectItem } from '../interfaces/interfaces';
+import { ProjectItem } from '@interfaces/interfaces';
 import { RepositoryInterface } from './RepositoryInterface';
 
 const projects: ProjectItem[] = [

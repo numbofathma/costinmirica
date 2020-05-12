@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
-import LinkIcon from '../LinkIcon';
-import { SocialItem } from '../../interfaces/interfaces';
+import LinkIcon from '@components/LinkIcon';
+import { SocialItem } from '@interfaces/interfaces';
 
 interface SocialListProps {
   socials: SocialItem[];

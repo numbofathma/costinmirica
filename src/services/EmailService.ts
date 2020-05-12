@@ -1,5 +1,5 @@
 import * as emailjs from 'emailjs-com';
-import { ContactForm } from '../interfaces/interfaces';
+import { ContactForm } from '@interfaces/interfaces';
 
 class EmailService {
   public static sendEmail = async (data: ContactForm) => emailjs

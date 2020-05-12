@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { LabelStyled } from '@components/FormInput/style';
 import { TextInputAreaStyled } from './style';
-import { LabelStyled } from '../FormInput/style';
 
 interface FormTextareaProps {
   label?: string;

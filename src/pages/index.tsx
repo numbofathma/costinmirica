@@ -1,17 +1,17 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { Column, Grid, Row } from '../components/Skeleton';
-import ContactFrom from '../components/ContactForm';
-import ProjectsList from '../components/ProjectsList';
-import SkillsList from '../components/SkillsList';
-import SocialList from '../components/SocialList';
-import Profile from '../components/Profile';
-import ProfileDescription from '../components/ProfileDescription';
-import BackgroundParticles from '../components/BackgroundParticles';
-import ProjectRepository from '../repositories/ProjectRepository';
-import { ProjectItem, SocialItem } from '../interfaces/interfaces';
-import SkillRepository from '../repositories/SkillRepository';
-import SocialRepository from '../repositories/SocialRepository';
+import { Column, Grid, Row } from '@components/Skeleton';
+import ContactFrom from '@components/ContactForm';
+import ProjectsList from '@components/ProjectsList';
+import SkillsList from '@components/SkillsList';
+import SocialList from '@components/SocialList';
+import Profile from '@components/Profile';
+import ProfileDescription from '@components/ProfileDescription';
+import BackgroundParticles from '@components/BackgroundParticles';
+import ProjectRepository from '@repositories/ProjectRepository';
+import { ProjectItem, SocialItem } from '@interfaces/interfaces';
+import SkillRepository from '@repositories/SkillRepository';
+import SocialRepository from '@repositories/SocialRepository';
 
 interface HomePageProps {
   projects: ProjectItem[];

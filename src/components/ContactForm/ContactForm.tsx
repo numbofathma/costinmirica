@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { MoonLoader } from 'react-spinners';
 import Swal from 'sweetalert2';
-import { Column, Row, Form } from '../Skeleton';
+import { Column, Row, Form } from '@components/Skeleton';
+import FormInput from '@components/FormInput';
+import FormTextarea from '@components/FormTextarea';
+import FormButton from '@components/FormButton';
+import { ContactFormErrors, ContactFormFields } from '@interfaces/interfaces';
+import ContactFormValidator from '@services/ContactFormValidator';
+import EmailService from '@services/EmailService';
 import { LoaderStyled } from './style';
-import FormInput from '../FormInput';
-import FormTextarea from '../FormTextarea';
-import FormButton from '../FormButton';
-import { ContactFormErrors, ContactFormFields } from '../../interfaces/interfaces';
-import ContactFormValidator from '../../services/ContactFormValidator';
-import EmailService from '../../services/EmailService';
 
 interface ContactFormState {
   name: string;

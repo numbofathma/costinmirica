@@ -1,6 +1,6 @@
 import * as Brand from '@fortawesome/free-brands-svg-icons';
 import * as Icon from '@fortawesome/free-regular-svg-icons';
-import { SocialItem } from '../interfaces/interfaces';
+import { SocialItem } from '@interfaces/interfaces';
 import { RepositoryInterface } from './RepositoryInterface';
 
 const socials: SocialItem[] = [

@@ -2,7 +2,7 @@ import {
   ContactFormErrors,
   ContactForm,
   Validator,
-} from '../interfaces/interfaces';
+} from '@interfaces/interfaces';
 
 class ContactFormValidator implements Validator {
   private errors: ContactFormErrors;
