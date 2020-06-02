@@ -14,7 +14,7 @@ interface FormTextareaProps {
 
 const FormTextarea = (props: FormTextareaProps) => (
   <>
-    {props.label && <LabelStyled>{props.label}</LabelStyled>}
+    {props.label && <LabelStyled htmlFor={props.id}>{props.label}</LabelStyled>}
     <TextInputAreaStyled
       placeholder={props.placeholder}
       id={props.id}

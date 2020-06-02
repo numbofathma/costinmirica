@@ -14,7 +14,7 @@ interface IconProps {
 
 const LinkIcon = (props: IconProps) => {
   const Link = (
-    <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener">
+    <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener" tabIndex={0}>
       <FaIcon icon={props.icon} className="huge" />
     </a>
   );

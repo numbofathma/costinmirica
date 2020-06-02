@@ -39,7 +39,15 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta name="theme-color" content="#000000" />
+          <meta name="title" content="Costin Mirica - Full Stack Developer" />
+          <meta name="description" content="Just another developer understanding the world one line of code at a time." />
+          <meta name="keywords" content="personal website, portfolio, full stack developer" />
+          <meta name="author" content="Costin Mirica" />
+
+          <meta name="theme-color" content="#282931" />
+          <meta name="apple-mobile-web-app-title" content="Costin Mirica" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="#282931" />
+
           <meta property="og:url" content="https://costinmirica.com" />
           <meta property="og:type" content="website" />
           <meta
@@ -49,9 +57,19 @@ export default class MyDocument extends Document {
           <meta property="og:image" content="/static/img/costin-mirica.jpg" />
           <meta
             property="og:description"
-            content="Just another developer understading the world one line of code at a time."
+            content="Just another developer understanding the world one line of code at a time."
           />
+
+          <meta property="twitter:card" content="/static/img/costin-mirica.jpg" />
+          <meta property="twitter:url" content="https://costinmirica.com/" />
+          <meta property="twitter:title" content="Costin Mirica - Full Stack Developer" />
+          <meta property="twitter:description" content="Just another developer understanding the world one line of code at a time." />
+          <meta property="twitter:image" content="/static/img/costin-mirica.jpg" />
+
+          <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="64x64" href="/icons/icon-64x64.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="//icons/icon-180x180.png" />
           <link
             href="https://fonts.googleapis.com/css?family=Varela+Round"
             rel="stylesheet"

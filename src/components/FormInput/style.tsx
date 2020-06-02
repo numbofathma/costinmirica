@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Label } from '../Skeleton';
 
-export const LabelStyled = styled(Label)`
+export const LabelStyled = styled.label`
   color: #ffffff;
   display: block;
   font-size: 1em;

@@ -137,6 +137,7 @@ class ContactFrom extends React.Component<unknown, ContactFormState> {
               name="message"
               value={message}
               placeholder="Hello, Costin!"
+              label="Your Mesage"
               error={errors.message}
               onChange={this.handleChange}
             />

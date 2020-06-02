@@ -14,7 +14,7 @@ interface FormInputProps {
 
 const FormInput = (props: FormInputProps) => (
   <>
-    {props.label && <LabelStyled forHtml={props.id}>{props.label}</LabelStyled>}
+    {props.label && <LabelStyled htmlFor={props.id}>{props.label}</LabelStyled>}
     <TextInputStyled
       placeholder={props.placeholder}
       id={props.id}

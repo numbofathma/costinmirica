@@ -13,7 +13,7 @@ const ProjectsList = (props: ProjectListProps) => (
 
     <UnOrderedList className="mt-3">
       {props.projects.map((project: ProjectItem) => (
-        <ProjectsItem key={project.title} {...project} />
+        <ProjectsItem key={project.title} {...project} tabIndex={0} />
       ))}
     </UnOrderedList>
   </>

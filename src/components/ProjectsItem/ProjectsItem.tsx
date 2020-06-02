@@ -7,11 +7,12 @@ interface ProjectItemProps {
   url: string;
   icon: string;
   text: string;
+  tabIndex: number;
 }
 
 const ProjectsItem = (props: ProjectItemProps) => (
   <ListItem className="mt-2">
-    <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener">
+    <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener" tabIndex={props.tabIndex}>
       <ProjectIconWrapper>
         <ProjectIcon icon={props.icon} />
         {props.title}
@@ -20,7 +21,7 @@ const ProjectsItem = (props: ProjectItemProps) => (
     <p>
       {props.text}
       {' '}
-      <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener">
+      <a href={props.url} title={props.title} target="_blank" rel="noreferrer noopener" tabIndex={props.tabIndex}>
         Try it!
       </a>
     </p>
