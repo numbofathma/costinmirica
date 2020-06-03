@@ -69,8 +69,11 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="64x64" href="/icons/icon-64x64.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="//icons/icon-180x180.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
           <link href="https://fonts.googleapis.com/css2?family=Varela+Round&amp;display=swap" rel="stylesheet" />
+
+          <link rel="preconnect" href="https://www.google-analytics.com" />
+          <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         </Head>
         <body>
           <Main />
