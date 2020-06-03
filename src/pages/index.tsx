@@ -7,7 +7,7 @@ import SkillsList from '@components/SkillsList';
 import SocialList from '@components/SocialList';
 import Profile from '@components/Profile';
 import ProfileDescription from '@components/ProfileDescription';
-import BackgroundParticles from '@components/BackgroundParticles';
+// import BackgroundParticles from '@components/BackgroundParticles';
 import ProjectRepository from '@repositories/ProjectRepository';
 import { ProjectItem, SocialItem } from '@interfaces/interfaces';
 import SkillRepository from '@repositories/SkillRepository';
@@ -65,7 +65,7 @@ class HomePage extends React.Component<HomePageProps> {
           </Row>
           <ContactFrom />
         </Grid>
-        <BackgroundParticles />
+        {/* <BackgroundParticles /> */}
       </>
     );
   }
