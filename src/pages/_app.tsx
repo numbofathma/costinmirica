@@ -3,7 +3,7 @@ import App, { AppContext } from 'next/app';
 import Router from 'next/router';
 import withGA from 'next-ga';
 import '@public/static/css/style.css';
-import OfflineSupport from '@components/OfflineSupport';
+// import OfflineSupport from '@components/OfflineSupport';
 
 class MyApp extends App<unknown, unknown> {
   static async getInitialProps({ Component, ctx }: AppContext) {
@@ -23,7 +23,7 @@ class MyApp extends App<unknown, unknown> {
 
     return (
       <>
-        <OfflineSupport />
+        {/* <OfflineSupport /> */}
         <Component {...pageProps} />
       </>
     );
