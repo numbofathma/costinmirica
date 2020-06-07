@@ -1,5 +1,14 @@
 const CACHE_NAME = "costin-mirica-v1";
-const urlsToCache = ["/"];
+const urlsToCache = [
+  "/",
+  "/resume.pdf",
+  "/static/img/costin-mirica.jpg",
+  "/static/img/projecs/arrows.jpg",
+  "/static/img/projecs/bubblewrap.jpg",
+  "/static/img/projecs/giftrush.jpg",
+  "/static/img/projecs/paws.jpg",
+  "/static/img/projecs/twindots.jpg",
+];
 
 self.addEventListener("install", event => {
   const preLoaded = caches.open(CACHE_NAME)
