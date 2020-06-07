@@ -2,7 +2,6 @@ import * as React from 'react';
 import App, { AppContext } from 'next/app';
 import Router from 'next/router';
 import withGA from 'next-ga';
-import OfflineSupport from '@components/OfflineSupport';
 import '@public/static/css/style.css';
 
 class MyApp extends App<unknown, unknown> {
@@ -22,10 +21,7 @@ class MyApp extends App<unknown, unknown> {
     const { Component, pageProps } = this.props;
 
     return (
-      <>
-        <OfflineSupport />
-        <Component {...pageProps} />
-      </>
+      <Component {...pageProps} />
     );
   }
 }
