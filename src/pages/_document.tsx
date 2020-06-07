@@ -66,7 +66,6 @@ export default class MyDocument extends Document {
           <meta property="twitter:description" content="Just another developer understanding the world one line of code at a time." />
           <meta property="twitter:image" content="/static/img/costin-mirica.jpg" />
 
-          <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="64x64" href="/icons/icon-64x64.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180x180.png" />
