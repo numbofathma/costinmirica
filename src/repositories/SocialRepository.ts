@@ -38,7 +38,7 @@ const socials: SocialItem[] = [
     id: 'resume',
     title: 'Resume',
     icon: Icon.faIdCard,
-    url: '/resume.pdf',
+    url: 'https://costinmirica.b-cdn.net/public/resume.pdf',
   },
 ];
 
