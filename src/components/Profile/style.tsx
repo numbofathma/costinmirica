@@ -25,7 +25,7 @@ export const ProfileWrapper = styled.div`
 export const ProfilePicture = styled.div.attrs({
   className: 'profile-picture',
 })`
-  background: url(/static/img/costin-mirica.jpg);
+  background: url(https://cdn.costinmirica.com/static/img/costin-mirica.jpg);
   border-radius: 50%;
   width: 150px;
   height: 150px;

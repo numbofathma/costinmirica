@@ -54,21 +54,21 @@ export default class MyDocument extends Document {
             property="og:title"
             content="Costin Mirica - Full Stack Developer"
           />
-          <meta property="og:image" content="https://cdn.costinmirica.com/public/static/img/costin-mirica.jpg" />
+          <meta property="og:image" content="https://cdn.costinmirica.com/static/img/costin-mirica.jpg" />
           <meta
             property="og:description"
             content="Just another developer understanding the world one line of code at a time."
           />
 
-          <meta property="twitter:card" content="https://cdn.costinmirica.com/public/static/img/costin-mirica.jpg" />
+          <meta property="twitter:card" content="https://cdn.costinmirica.com/static/img/costin-mirica.jpg" />
           <meta property="twitter:url" content="https://costinmirica.com/" />
           <meta property="twitter:title" content="Costin Mirica - Full Stack Developer" />
           <meta property="twitter:description" content="Just another developer understanding the world one line of code at a time." />
-          <meta property="twitter:image" content="https://cdn.costinmirica.com/public/static/img/costin-mirica.jpg" />
+          <meta property="twitter:image" content="https://cdn.costinmirica.com/static/img/costin-mirica.jpg" />
 
-          <link rel="shortcut icon" href="https://cdn.costinmirica.com/public/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="64x64" href="https://cdn.costinmirica.com/public/icons/icon-64x64.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.costinmirica.com/public/icons/icon-180x180.png" />
+          <link rel="shortcut icon" href="https://cdn.costinmirica.com/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="64x64" href="https://cdn.costinmirica.com/icons/icon-64x64.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.costinmirica.com/icons/icon-180x180.png" />
 
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link rel="dns-prefetch" href="https://www.google-analytics.com" />
