@@ -1,7 +1,10 @@
+import getConfig from 'next/config';
 import * as Brand from '@fortawesome/free-brands-svg-icons';
 import * as Icon from '@fortawesome/free-regular-svg-icons';
 import { SocialItem } from '@interfaces/interfaces';
 import { RepositoryInterface } from './RepositoryInterface';
+
+const { publicRuntimeConfig } = getConfig();
 
 const socials: SocialItem[] = [
   {
@@ -38,7 +41,7 @@ const socials: SocialItem[] = [
     id: 'resume',
     title: 'Resume',
     icon: Icon.faIdCard,
-    url: 'https://cdn.costinmirica.com/resume.pdf',
+    url: `${publicRuntimeConfig.BASE_URL}/resume.pdf`,
   },
 ];
 

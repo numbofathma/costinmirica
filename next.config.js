@@ -6,6 +6,9 @@ const BrotliPlugin = require('brotli-webpack-plugin');
 
 const nextConfig = {
   target: 'serverless',
+  publicRuntimeConfig: {
+    BASE_URL: process.env.NODE_ENV === 'production' ? 'https://cdn.costinmirica.com' : ''
+  },
   webpack(config, options) {
     config.plugins.push(
       new CompressionPlugin({

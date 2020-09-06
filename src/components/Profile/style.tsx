@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 export const ProfileWrapper = styled.div`
   margin-top: 50px;
@@ -25,7 +28,7 @@ export const ProfileWrapper = styled.div`
 export const ProfilePicture = styled.div.attrs({
   className: 'profile-picture',
 })`
-  background: url(https://cdn.costinmirica.com/static/img/costin-mirica.jpg);
+  background: url(${publicRuntimeConfig.BASE_URL}/static/img/costin-mirica.jpg);
   border-radius: 50%;
   width: 150px;
   height: 150px;

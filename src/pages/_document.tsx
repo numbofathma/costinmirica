@@ -3,6 +3,9 @@ import Document, {
   Head, Main, NextScript, DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -54,21 +57,21 @@ export default class MyDocument extends Document {
             property="og:title"
             content="Costin Mirica - Full Stack Developer"
           />
-          <meta property="og:image" content="https://cdn.costinmirica.com/static/img/costin-mirica.jpg" />
+          <meta property="og:image" content={`${publicRuntimeConfig.BASE_URL}/static/img/costin-mirica.jpg`} />
           <meta
             property="og:description"
             content="Just another developer understanding the world one line of code at a time."
           />
 
-          <meta property="twitter:card" content="https://cdn.costinmirica.com/static/img/costin-mirica.jpg" />
+          <meta property="twitter:card" content={`${publicRuntimeConfig.BASE_URL}/static/img/costin-mirica.jpg`} />
           <meta property="twitter:url" content="https://costinmirica.com/" />
           <meta property="twitter:title" content="Costin Mirica - Full Stack Developer" />
           <meta property="twitter:description" content="Just another developer understanding the world one line of code at a time." />
-          <meta property="twitter:image" content="https://cdn.costinmirica.com/static/img/costin-mirica.jpg" />
+          <meta property="twitter:image" content={`${publicRuntimeConfig.BASE_URL}/static/img/costin-mirica.jpg`} />
 
-          <link rel="shortcut icon" href="https://cdn.costinmirica.com/favicon.ico" />
-          <link rel="icon" type="image/png" sizes="64x64" href="https://cdn.costinmirica.com/icons/icon-64x64.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.costinmirica.com/icons/icon-180x180.png" />
+          <link rel="shortcut icon" href={`${publicRuntimeConfig.BASE_URL}/favicon.ico`} />
+          <link rel="icon" type="image/png" sizes="64x64" href={`${publicRuntimeConfig.BASE_URL}/icons/icon-64x64.png`} />
+          <link rel="apple-touch-icon" sizes="180x180" href={`${publicRuntimeConfig.BASE_URL}/icons/icon-180x180.png`} />
 
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link rel="dns-prefetch" href="https://www.google-analytics.com" />
