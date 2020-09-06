@@ -7,7 +7,7 @@ interface FormButtonProps {
 }
 
 const FormButton = (props: FormButtonProps) => (
-  <ButtonStyled>{props.text}</ButtonStyled>
+  <ButtonStyled onClick={props.onClick}>{props.text}</ButtonStyled>
 );
 
 export default FormButton;

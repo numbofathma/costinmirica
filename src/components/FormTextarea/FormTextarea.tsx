@@ -26,4 +26,9 @@ const FormTextarea = (props: FormTextareaProps) => (
   </>
 );
 
+FormTextarea.defaultProps = {
+  label: null,
+  error: null,
+};
+
 export default FormTextarea;

@@ -19,11 +19,17 @@ const FormInput = (props: FormInputProps) => (
       placeholder={props.placeholder}
       id={props.id}
       name={props.name}
+      type={props.type}
       value={props.value}
       onChange={props.onChange}
     />
     {props.error && <div className="error">{props.error}</div>}
   </>
 );
+
+FormInput.defaultProps = {
+  label: null,
+  error: null,
+};
 
 export default FormInput;
