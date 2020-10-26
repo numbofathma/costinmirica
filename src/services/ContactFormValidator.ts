@@ -1,33 +1,35 @@
-import {
-  ContactFormErrors,
-  ContactForm,
-  Validator,
-} from '@interfaces/interfaces';
+import { IContactFormErrors, IContactForm, IValidator } from '@/interfaces/general';
 
-class ContactFormValidator implements Validator {
-  private errors: ContactFormErrors;
+class ContactFormValidator implements IValidator {
+  private errors: IContactFormErrors;
 
   constructor() {
     this.errors = {};
   }
 
-  public getErrors(): ContactFormErrors {
+  public getErrors(): IContactFormErrors {
     return this.errors;
   }
 
-  public validate(data: ContactForm): boolean {
+  public validate(data: IContactForm): boolean {
     this.errors = {};
 
-    if (data.name.length < 3) {
-      this.errors.name = 'Please type your name.';
+    if (data.fullName.length < 3) {
+      this.errors.fullName = "Ooops is this really your name? It's a bit short.";
     }
 
-    if (data.email.length < 7 || !this.validateEmail(data.email)) {
-      this.errors.email = 'Please type your email address.';
+    if (data.fullName.length > 250) {
+      this.errors.fullName = "Ooops is this really your name? It's a bit long.";
+    }
+
+    if (data.email.length < 7 || data.email.length > 250 || !this.validateEmail(data.email)) {
+      this.errors.email = 'Please type a valid email address.';
     }
 
     if (data.message.length < 10) {
-      this.errors.message = 'Please type your message.';
+      this.errors.message = "Don't be shy, say more than just 'Hello!'.";
+    } else if (data.message.length > 10000) {
+      this.errors.message = 'Wow! Your message si a bit too long. Maybe we should schedule a meeting.';
     }
 
     return Object.keys(this.errors).length === 0;

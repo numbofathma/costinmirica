@@ -1,0 +1,18 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["next", "next/core-web-vitals", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ]
+  },
+  "overrides": []
+}
