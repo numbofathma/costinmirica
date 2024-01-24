@@ -1,0 +1,14 @@
+.wrapper {
+  width: 100%;
+
+  .picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-size: 200px;
+    border: 3px solid;
+    @apply border-teal-700;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+}

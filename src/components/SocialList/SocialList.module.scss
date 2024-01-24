@@ -1,0 +1,30 @@
+.socialList {
+  .socialListItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 0.5rem;
+    border-radius: 50%;
+    transition: border 0.3s;
+
+    .icon {
+      cursor: pointer;
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background: #000000;
+      mask-size: cover;
+    }
+
+    &:hover,
+    &:active {
+      border: 1px solid #008080;
+
+      .icon {
+        background: #008080;
+      }
+    }
+  }
+}
