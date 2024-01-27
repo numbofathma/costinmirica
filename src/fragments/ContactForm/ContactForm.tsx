@@ -7,7 +7,8 @@ import CustomTextarea from '@/components/CustomTextarea';
 import CustomButton from '@/components/CustomButton';
 import Header from '@/components/Header';
 import Loader from '@/components/Loader';
-import { AlertTypes, IContactFormErrors } from '@/interfaces/general';
+import SvgIcon from '@/components/SvgIcon';
+import { AlertTypes, IContactFormErrors, SvgIcons } from '@/interfaces/general';
 import ContactFormValidator from '@/services/ContactFormValidator';
 import EmailService from '@/services/EmailService';
 
@@ -20,6 +21,7 @@ interface IContactFormState {
   isSuccess: boolean;
   errors: IContactFormErrors;
 }
+
 interface IContactFromResponseState {
   type: AlertTypes;
   title: string;
@@ -117,7 +119,7 @@ const ContactFrom = () => {
     <div className='my-5'>
       <form autoComplete='off' onSubmit={handleOnSubmit}>
         <div>
-          <Header level={2} className='my-5 text-base sm:text-lg md:text-2xl'>
+          <Header level={2} className='my-5 text-xl md:text-2xl'>
             {`Getting in touch is easy!`}{' '}
             <span className='text-teal-700'>
               <i className='text-blink'>_</i>
@@ -184,17 +186,7 @@ const ContactFrom = () => {
         </div>
         <div className='my-5'>
           <CustomButton type='submit' text='SEND' disabled={isSending}>
-            {isSending ? (
-              <Loader width={5} height={5} />
-            ) : (
-              <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='h-5 w-5'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5'
-                />
-              </svg>
-            )}
+            {isSending ? <Loader width={5} height={5} /> : <SvgIcon icon={SvgIcons.plane} className='h-5 w-5' />}
           </CustomButton>
         </div>
       </form>

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ContactEmailTemplate } from '@/templates/contact';
