@@ -8,11 +8,11 @@ const Profile = () => (
     <div
       className={`${style.picture} mx-auto my-7`}
       style={{
-        backgroundImage: `url(${BASE_URL}/static/costin-mirica.jpg)`,
+        backgroundImage: `url(${BASE_URL}/static/costin-mirica.jpeg)`,
       }}
     />
     <div className='flex flex-col text-center'>
-      <Header level={1} className='text-base·sm:text-lg·md:text-2xl lg:text-4xl'>
+      <Header level={1} className='text-2xl lg:text-4xl'>
         COSTIN MIRICĂ
       </Header>
       <Header level={2} className='mt-5 text-base font-bold'>

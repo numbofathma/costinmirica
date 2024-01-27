@@ -20,6 +20,11 @@ export enum AlertTypes {
   DEFAULT = 'default',
 }
 
+export enum SvgIcons {
+  plane = 'plane',
+  follow = 'follow',
+}
+
 export interface IContactForm {
   fullName: string;
   email: string;

@@ -9,7 +9,7 @@ interface IProjectListProps {
 
 const ProjectsList: FC<IProjectListProps> = ({ projects }) => (
   <>
-    <Header level={2} className='text-base sm:text-lg md:text-2xl'>
+    <Header level={2} className='text-xl md:text-2xl'>
       {`Some of my personal projects `}
       <span className='text-teal-700'>
         <i className='text-blink'>_</i>
@@ -19,7 +19,7 @@ const ProjectsList: FC<IProjectListProps> = ({ projects }) => (
     <div className='mt-4 w-full'>
       <div className='grid auto-rows-max grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'>
         {projects.map((project: IProjectItem, index: number) => (
-          <ProjectsItem key={project.title} tabIndex={index} {...project} className='mt-5' />
+          <ProjectsItem key={project.title} {...project} className='mt-5' />
         ))}
       </div>
     </div>
