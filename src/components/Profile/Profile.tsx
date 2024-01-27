@@ -8,7 +8,7 @@ const Profile = () => (
     <div
       className={`${style.picture} mx-auto my-7`}
       style={{
-        backgroundImage: `url(${BASE_URL}/static/costin-mirica.jpeg)`,
+        backgroundImage: `url(${BASE_URL}/static/costin-mirica.webp)`,
       }}
     />
     <div className='flex flex-col text-center'>

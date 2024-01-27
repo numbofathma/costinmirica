@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: 'https://costinmirica.com',
     type: 'website',
     title: 'Costin Mirică - Full Stack Developer',
-    images: [{ url: `${BASE_URL}/static/img/costin-mirica.jpeg` }],
+    images: [{ url: `${BASE_URL}/static/img/costin-mirica.webp` }],
     description: 'Just another software developer trying to build the future one line of code at a time.',
   },
   twitter: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     site: 'https://costinmirica.com/',
     title: 'Costin Mirică - Full Stack Developer',
     description: 'Just another software developer trying to build the future one line of code at a time.',
-    images: [{ url: `${BASE_URL}/static/img/costin-mirica.jpeg` }],
+    images: [{ url: `${BASE_URL}/static/img/costin-mirica.webp` }],
   },
   icons: {
     shortcut: `favicon.ico`,
