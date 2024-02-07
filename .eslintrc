@@ -1,8 +1,40 @@
 {
-  "plugins": ["prettier"],
-  "extends": ["next", "next/core-web-vitals", "prettier"],
+  "plugins": [ "@typescript-eslint", "prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "tsx": true
+    }
+  },
   "rules": {
+    "no-console": "error",
     "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "react/jsx-filename-extension": ["off", { "extensions": [".tsx"] }], // Only .tsx files for JSX
+    "import/no-unresolved": "off", // TypeScript takes care of this
+    "react/react-in-jsx-scope": "off", // Not needed in Next.js
+    "react/jsx-props-no-spreading": "off", // Allowing spread props
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/prefer-default-export": "off",
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "always-multiline"
+    }],
     "import/extensions": [
       "error",
       "ignorePackages",

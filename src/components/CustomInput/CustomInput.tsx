@@ -11,6 +11,7 @@ interface ICustomInputProps {
   label?: string;
   error?: string;
   className?: string;
+  onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CustomInput: FC<ICustomInputProps> = ({
@@ -24,6 +25,7 @@ const CustomInput: FC<ICustomInputProps> = ({
   error = '',
   disabled = false,
   className = '',
+  onBlur,
 }) => (
   <div className={className}>
     {label && (
@@ -41,8 +43,9 @@ const CustomInput: FC<ICustomInputProps> = ({
       autoComplete='off'
       disabled={disabled}
       onChange={onChange}
+      onBlur={onBlur}
     />
-    {error && <div className='bold text-xs text-red-500'>{error}</div>}
+    <div className='bold h-4 text-xs text-red-500'>{error}</div>
   </div>
 );
 
