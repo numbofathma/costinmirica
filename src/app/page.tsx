@@ -12,7 +12,7 @@ const HomePage: FC = () => {
   const socials = new SocialRepository().getAll();
 
   return (
-    <div className='container m-auto grid max-w-screen-xl gap-5 border border-gray-300 bg-white p-5 font-light shadow-xl lg:my-2 lg:p-10'>
+    <div className='container m-auto grid max-w-screen-xl gap-5 border border-gray-300 bg-white p-5 font-light shadow-xl lg:p-10 xl:my-5'>
       <div className='grid-cols-12'>
         <Profile />
         <SocialList socials={socials} />

@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { SvgIcons } from '@/interfaces/general';
+import { FC } from 'react';
+import { SvgIcons } from '@/interfaces/app';
 import { SvgIconsList } from '@/constants/icons';
 
 interface ISvgIconProps {

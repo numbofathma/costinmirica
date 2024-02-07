@@ -1,6 +1,6 @@
-import { IProjectItem } from '@/interfaces/general';
+import { IProjectItem } from '@/interfaces/app';
 import { IRepository } from '@/interfaces/api';
-import { projects } from '@/constants';
+import { projects } from '@/constants/mock';
 
 class ProjectRepository implements IRepository<IProjectItem> {
   public getAll(): IProjectItem[] {

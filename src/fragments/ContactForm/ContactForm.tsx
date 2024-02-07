@@ -8,14 +8,15 @@ import CustomButton from '@/components/CustomButton';
 import Header from '@/components/Header';
 import Loader from '@/components/Loader';
 import SvgIcon from '@/components/SvgIcon';
-import { AlertTypes, IContactFormErrors, SvgIcons } from '@/interfaces/general';
-import ContactFormValidator from '@/services/ContactFormValidator';
+import { AlertTypes, IContactForm, IContactFormErrors, IField, SvgIcons } from '@/interfaces/app';
+import ContactFormValidator from '@/validators/ContactFormValidator';
 import EmailService from '@/services/EmailService';
+import { LangVars } from '@/constants/lang';
 
 interface IContactFormState {
-  fullName: string;
+  name: string;
   email: string;
-  message: string;
+  text: string;
   phone: string;
   isSending: boolean;
   isSuccess: boolean;
@@ -25,33 +26,38 @@ interface IContactFormState {
 interface IContactFromResponseState {
   type: AlertTypes;
   title: string;
-  text: string;
+  value: string;
 }
 
 const contactFormValidator: ContactFormValidator = new ContactFormValidator();
 
 const ContactFrom = () => {
   const initialState: IContactFormState = {
-    fullName: '',
+    name: '',
     email: '',
-    message: '',
+    text: '',
     phone: '',
     isSending: false,
     isSuccess: false,
     errors: {},
   };
   const [state, setState] = useState<IContactFormState>(initialState);
-  const { fullName, email, message, phone, errors, isSending } = state;
+  const { name, email, text, phone, errors, isSending } = state;
   const [responseMessage, setResponseMessage] = useState<IContactFromResponseState | null>(null);
-  const { type, title, text } = responseMessage || {};
+  const { type, title, value } = responseMessage || {};
+  const { sectionTitle, itemTitle } = LangVars.Contact;
+  const { emailSuccess, emailFailure } = LangVars.Alerts;
+  const { contactForm: contactFormLabels } = LangVars.Labels;
+  const { contactForm: contactFormPlaceholders } = LangVars.Placeholders;
+  const { contactForm: contactFormButtons } = LangVars.Buttons;
 
   const handleOnChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
-      const contactFormFieldsValues: any = {};
-      const { name, type, value } = e.target;
+      const contactFormFieldsValues: IField<unknown> = {};
+      const { name, type } = e.target;
 
       if (type !== 'checkbox') {
-        contactFormFieldsValues[name as keyof typeof contactFormFieldsValues] = (e.target as HTMLTextAreaElement | HTMLInputElement).value;
+        contactFormFieldsValues[name as keyof IContactForm] = (e.target as HTMLTextAreaElement | HTMLInputElement).value;
       }
 
       setState((prevState) => ({ ...prevState, ...contactFormFieldsValues }));
@@ -61,6 +67,26 @@ const ContactFrom = () => {
       }
     },
     [responseMessage],
+  );
+
+  const handleOnBlur = useCallback(
+    (field: keyof IContactForm) => (): void => {
+      contactFormValidator.validate(state);
+      const fieldError = contactFormValidator.getErrors()[field];
+
+      setState((prevState) => ({
+        ...prevState,
+        [field]: state[field].trim(),
+        phone: '',
+        errors: {
+          ...prevState.errors,
+          [field]: fieldError,
+        },
+        isSending: false,
+        isSuccess: false,
+      }));
+    },
+    [state],
   );
 
   const handleOnSubmit = async (e: React.FormEvent) => {
@@ -73,26 +99,23 @@ const ContactFrom = () => {
     }));
 
     if (contactFormValidator.validate(state) && !state.phone) {
-      if (await EmailService.sendEmail(state)) {
+      const { ok, error = {} } = await EmailService.sendEmail(state);
+
+      if (ok) {
         setState({
-          fullName: '',
-          email: '',
-          message: '',
-          phone: '',
-          errors: {},
-          isSending: false,
+          ...initialState,
           isSuccess: true,
         });
 
         setResponseMessage({
           type: AlertTypes.SUCCESS,
-          title: 'Email sent',
-          text: 'We will get back to you shortly!',
+          ...emailSuccess,
         });
       } else {
         setState((prevState) => ({
           ...prevState,
           phone: '',
+          email: error?.domain ? '' : prevState.email,
           errors: {},
           isSending: false,
           isSuccess: false,
@@ -100,8 +123,7 @@ const ContactFrom = () => {
 
         setResponseMessage({
           type: AlertTypes.WARNING,
-          title: 'Oops...',
-          text: 'Something went wrong! Please try again later!',
+          ...emailFailure,
         });
       }
     } else {
@@ -120,31 +142,32 @@ const ContactFrom = () => {
       <form autoComplete='off' onSubmit={handleOnSubmit}>
         <div>
           <Header level={2} className='my-5 text-xl md:text-2xl'>
-            {`Getting in touch is easy!`}{' '}
+            {sectionTitle}
             <span className='text-teal-700'>
               <i className='text-blink'>_</i>
             </span>
           </Header>
-          <p>{`Interested in working together or hire me? Drop me a line and let's start to create awesome stuff!`}</p>
+          <p>{itemTitle}</p>
           {type && (
             <Alert type={type} className='mt-5'>
               <span className='font-bold'>{title} </span>
-              <span className=''>{text}</span>
+              <span className=''>{value}</span>
             </Alert>
           )}
         </div>
         <div className='-mx-3 my-5 mb-6 flex flex-wrap'>
-          <div className='mb-6 w-full px-3 md:mb-0 md:w-1/2'>
+          <div className='mb-3 w-full px-3 md:mb-0 md:w-1/2'>
             <CustomInput
               type='text'
-              id='fullName'
-              name='fullName'
-              value={fullName}
-              placeholder='Name'
-              label='Your Name'
-              error={errors.fullName}
+              id='name'
+              name='name'
+              value={name}
+              placeholder={contactFormPlaceholders.name}
+              label={contactFormLabels.name}
+              error={errors.name}
               disabled={isSending}
               onChange={handleOnChange}
+              onBlur={handleOnBlur('name')}
             />
           </div>
           <div className='w-full px-3 md:w-1/2'>
@@ -153,11 +176,12 @@ const ContactFrom = () => {
               id='email'
               name='email'
               value={email}
-              placeholder='Email'
-              label='Your Email'
+              placeholder={contactFormPlaceholders.email}
+              label={contactFormLabels.email}
               error={errors.email}
               disabled={isSending}
               onChange={handleOnChange}
+              onBlur={handleOnBlur('email')}
             />
             <CustomInput
               type='text'
@@ -165,8 +189,8 @@ const ContactFrom = () => {
               name='phone'
               className='hidden'
               value={phone}
-              placeholder='Phone'
-              label='Your Phone'
+              placeholder={contactFormPlaceholders.phone}
+              label={contactFormLabels.phone}
               error={errors.phone}
               onChange={handleOnChange}
             />
@@ -174,18 +198,19 @@ const ContactFrom = () => {
         </div>
         <div>
           <CustomTextarea
-            id='message'
-            name='message'
-            value={message}
-            placeholder='Hello, Costin!'
-            label='Your Mesage'
-            error={errors.message}
+            id='text'
+            name='text'
+            value={text}
+            placeholder={contactFormPlaceholders.text}
+            label={contactFormLabels.text}
+            error={errors.text}
             disabled={isSending}
             onChange={handleOnChange}
+            onBlur={handleOnBlur('text')}
           />
         </div>
         <div className='my-5'>
-          <CustomButton type='submit' text='SEND' disabled={isSending}>
+          <CustomButton type='submit' text={contactFormButtons.actionButtonText} disabled={isSending}>
             {isSending ? <Loader width={5} height={5} /> : <SvgIcon icon={SvgIcons.plane} className='h-5 w-5' />}
           </CustomButton>
         </div>

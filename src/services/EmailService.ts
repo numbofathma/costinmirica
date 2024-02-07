@@ -1,7 +1,7 @@
-import { IContactForm } from '@/interfaces/general';
+import { IEmail } from '@/interfaces/app';
 
 class EmailService {
-  public static sendEmail = async (data: IContactForm) => {
+  static sendEmail = async (data: IEmail) => {
     try {
       const response = await fetch('/api', {
         method: 'POST',
@@ -11,9 +11,9 @@ class EmailService {
         body: JSON.stringify(data),
       });
 
-      return response.ok;
-    } catch (e) {
-      return false;
+      return await response.json();
+    } catch (error) {
+      return { ok: false, error };
     }
   };
 }

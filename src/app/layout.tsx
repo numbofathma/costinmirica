@@ -1,37 +1,41 @@
-import '@/styles/globals.scss';
+import React, { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Inconsolata } from 'next/font/google';
-import Script from 'next/script';
-import { BASE_URL } from '@/constants';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { BASE_URL, DEV_MODE, GA_ID } from '@/constants';
+import { LangVars } from '@/constants/lang';
+import '@/styles/globals.scss';
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
   variable: '--font-inconsolata',
 });
 
+const { name, title, description, keywords } = LangVars.Metadata;
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://costinmirica.com'),
-  title: 'Costin Mirică - Full Stack Developer',
-  description: 'Just another software developer trying to build the future one line of code at a time.',
-  keywords: 'personal website, portfolio, full stack developer, indie game developer',
-  authors: [{ name: 'Costin Mirică', url: 'https://github.com/numbofathma' }],
+  title,
+  description,
+  keywords,
+  authors: [{ name, url: 'https://github.com/numbofathma' }],
   appleWebApp: {
     capable: true,
-    title: "Costin Mirică's Portfolio",
+    title,
     statusBarStyle: 'black',
   },
   openGraph: {
     url: 'https://costinmirica.com',
     type: 'website',
-    title: 'Costin Mirică - Full Stack Developer',
+    title,
     images: [{ url: `${BASE_URL}/static/img/costin-mirica.webp` }],
-    description: 'Just another software developer trying to build the future one line of code at a time.',
+    description,
   },
   twitter: {
     card: 'summary',
     site: 'https://costinmirica.com/',
-    title: 'Costin Mirică - Full Stack Developer',
-    description: 'Just another software developer trying to build the future one line of code at a time.',
+    title,
+    description,
     images: [{ url: `${BASE_URL}/static/img/costin-mirica.webp` }],
   },
   icons: {
@@ -49,22 +53,13 @@ export const viewport: Viewport = {
   themeColor: '#000000',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang='en'>
-      <Script src='https://www.googletagmanager.com/gtag/js?id=G-7D4XY5H6PV' />
-      <Script id='google-analytics'>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+const RootLayout = ({ children }: { children: ReactNode }) => (
+  <html lang='en'>
+    <body suppressHydrationWarning={true} className={inconsolata.className}>
+      {children}
+    </body>
+    {!DEV_MODE && <GoogleAnalytics gaId={GA_ID} />}
+  </html>
+);
 
-          gtag('config', 'G-7D4XY5H6PV');
-        `}
-      </Script>
-      <body suppressHydrationWarning={true} className={inconsolata.className}>
-        {children}
-      </body>
-    </html>
-  );
-}
+export default RootLayout;
