@@ -43,7 +43,7 @@ const CustomTextarea: FC<ICustomTextareaProps> = ({
       onBlur={onBlur}
       rows={5}
     />
-    <div className='bold h-4 text-xs text-red-500'>{error}</div>
+    {error && <div className='bold text-xs text-red-500'>{error}</div>}
   </div>
 );
 
