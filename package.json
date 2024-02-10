@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@next/bundle-analyzer": "^14.1.0",
     "@next/third-parties": "^14.1.0",
     "next": "^14.1.0",
     "react": "18.2.0",
@@ -19,8 +20,8 @@
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|css|scss)\" --write",
     "check": "npm run lint:fix && npm run format && npm run lint && npm run type-check",
-    "coupling-graph": "npx madge --extensions js,jsx,ts,tsx,css,md,mdx ./ --exclude '.next|tailwind.config.ts|prettierrc|eslintrc|postcss.config.js|next.config.js|next-env.d.ts|instrumentation.ts|e2e/|README.md|.storybook/' --image graph.svg",
-    "postinstall": "husky install"
+    "analyze": "ANALYZE=true npm run build",
+    "prepare": "husky || true"
   },
   "git": {
     "pre-commit": "lint-staged"
