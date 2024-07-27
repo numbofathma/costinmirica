@@ -1,7 +1,7 @@
-import { IProjectItem, ISocialItem } from '@/interfaces/app';
-import { BASE_URL } from './';
+import { IProject, ISocial } from '@/interfaces/app';
+import { BASE_URL } from '.';
 
-export const projects: IProjectItem[] = [
+export const projects: IProject[] = [
   {
     title: 'PAWs - Live to purr',
     url: 'https://roninmobile.eu/project/paws-live-to-purr',
@@ -12,7 +12,7 @@ export const projects: IProjectItem[] = [
       'ones of a puzzle game, resulting a fast-paced game that will test your attention, focus and adaptability to the max.',
   },
   {
-    title: 'Gift Rush - Save Christmas',
+    title: 'Gift Rush',
     url: 'https://roninmobile.eu/project/save-christmas-gift-rush',
     icon: `${BASE_URL}/static/projects/giftrush.webp`,
     text:
@@ -45,13 +45,7 @@ export const projects: IProjectItem[] = [
   },
 ];
 
-export const socials: ISocialItem[] = [
-  {
-    id: 'github',
-    title: 'GitHub',
-    icon: '/social/github-svgrepo-com.svg',
-    url: 'https://github.com/numbofathma',
-  },
+export const socials: ISocial[] = [
   {
     id: 'linkedin',
     title: 'LinkedIn',
@@ -59,9 +53,15 @@ export const socials: ISocialItem[] = [
     url: 'http://linkedin.com/in/costinmirica',
   },
   {
-    id: 'email',
-    title: 'Email',
-    icon: '/social/mail-svgrepo-com.svg',
-    url: 'mailto:contact@costinmirica.com',
+    id: 'github',
+    title: 'GitHub',
+    icon: '/social/github-svgrepo-com.svg',
+    url: 'https://github.com/numbofathma',
   },
+  // {
+  //   id: 'email',
+  //   title: 'Email',
+  //   icon: '/social/mail-svgrepo-com.svg',
+  //   url: 'mailto:',
+  // },
 ];

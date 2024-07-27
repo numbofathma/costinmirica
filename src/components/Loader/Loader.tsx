@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 interface ILoaderProps {
   width: number;
@@ -30,4 +30,4 @@ const Loader: FC<ILoaderProps> = ({ width = 5, height = 5, className = 'fill-whi
   );
 };
 
-export default Loader;
+export default memo(Loader);

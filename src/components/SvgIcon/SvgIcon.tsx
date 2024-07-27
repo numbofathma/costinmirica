@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { SvgIcons } from '@/interfaces/app';
+import { FC, memo } from 'react';
+import { SvgIcons } from '@/constants/enums';
 import { SvgIconsList } from '@/constants/icons';
 
 interface ISvgIconProps {
@@ -14,4 +14,4 @@ const SvgIcon: FC<ISvgIconProps> = ({ icon = SvgIcons.plane, className = '' }) =
   return SvgIconsList(icon, className);
 };
 
-export default SvgIcon;
+export default memo(SvgIcon);

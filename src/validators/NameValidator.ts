@@ -28,7 +28,10 @@ class NameValidator implements IValidator<string, IField<string>> {
   }
 
   private regexpName = (fullName: string): boolean => {
-    const re = new RegExp(/^[\p{L}'][ \p{L}'-]*[\p{L}]$/, 'iu');
+    const re = new RegExp(
+      /^(?!.*\d)(?!.*[!@#$%^&*()_+=[\]{};:"\\|,.<>/?~`])(?!.*\s{2,})[a-zA-ZÀ-ÖØ-öø-ÿ\u0100-\u017F\u1E00-\u1EFF\u0400-\u04FF\u0600-\u06FF\u0750-\u077F\u4E00-\u9FFF\uAC00-\uD7AF\u3040-\u30FF\u1100-\u11FF\u3130-\u318F\uA960-\uA97F\u0E00-\u0E7F\s'-]+$/,
+      'i',
+    );
 
     return re.test(fullName);
   };

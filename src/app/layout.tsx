@@ -4,6 +4,7 @@ import { Inconsolata } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { BASE_URL, DEV_MODE, GA_ID } from '@/constants';
 import { LangVars } from '@/constants/lang';
+import { MetadataIconSizes } from '@/constants/icons';
 import '@/styles/globals.scss';
 
 const inconsolata = Inconsolata({
@@ -12,6 +13,7 @@ const inconsolata = Inconsolata({
 });
 
 const { name, title, description, keywords } = LangVars.Metadata;
+const { apple, icon } = MetadataIconSizes;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://costinmirica.com'),
@@ -40,8 +42,14 @@ export const metadata: Metadata = {
   },
   icons: {
     shortcut: `favicon.ico`,
-    icon: `${BASE_URL}/icons/icon-64x64.png`,
-    apple: [`${BASE_URL}/icons/icon-64x64.png`, `${BASE_URL}/icons/icon-180x180.png`],
+    icon: icon.map((size: number) => ({
+      url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
+      sizes: `${size}x${size}`,
+    })),
+    apple: apple.map((size: number) => ({
+      url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
+      sizes: `${size}x${size}`,
+    })),
   },
 };
 

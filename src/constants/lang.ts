@@ -36,8 +36,8 @@ export const LangVars = {
   ProjectsList: {
     sectionTitle: 'Some of my personal projects',
     itemAlt: 'Check our awesome game',
-    itemTitle: 'Check out in-game screenshots of',
-    itemActionText: 'SCREENSHOTS',
+    itemTitle: 'Check out some in-game screenshots of',
+    itemActionText: 'IN-GAME SCREENSHOTS',
   },
   Contact: {
     sectionTitle: 'Getting in touch is easy',
@@ -46,6 +46,7 @@ export const LangVars = {
   Validation: {
     General: {
       mock: 'Good luck, bro!',
+      general: 'Error occured while sending your message!',
     },
     DomainValidator: {
       notFound: 'Domain could not be extracted',
@@ -72,14 +73,14 @@ export const LangVars = {
     ContactFormValidator: {
       TextValidator: {
         min: "Don't be shy, say more than just 'Hello!'.",
-        max: 'Wow! Your message is a bit too long. Maybe we should schedule a meeting.',
+        max: 'Wow! Your message is a bit long. Maybe we should schedule a meeting.',
       },
     },
   },
   Alerts: {
     emailSuccess: {
       title: 'Email sent! ',
-      value: 'We will get back to you shortly!',
+      value: 'I will get back to you shortly!',
     },
     emailFailure: {
       title: 'Oops...',

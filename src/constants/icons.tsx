@@ -1,5 +1,5 @@
 import React from 'react';
-import { SvgIcons } from '@/interfaces/app';
+import { SvgIcons } from '@/constants/enums';
 
 export const SvgIconsList = (icon: SvgIcons, className = '', stroke = 'currentColor') => {
   switch (icon) {
@@ -26,4 +26,9 @@ export const SvgIconsList = (icon: SvgIcons, className = '', stroke = 'currentCo
         </svg>
       );
   }
+};
+
+export const MetadataIconSizes = {
+  apple: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180],
+  icon: [16, 32, 96, 192],
 };

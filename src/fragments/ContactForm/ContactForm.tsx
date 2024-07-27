@@ -1,16 +1,17 @@
 'use client';
 
-import React, { ChangeEvent, useState, useCallback } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useFormState } from 'react-dom';
 import Alert from '@/components/Alert';
 import CustomInput from '@/components/CustomInput';
 import CustomTextarea from '@/components/CustomTextarea';
 import CustomButton from '@/components/CustomButton';
 import Header from '@/components/Header';
-import Loader from '@/components/Loader';
 import SvgIcon from '@/components/SvgIcon';
-import { AlertTypes, IContactForm, IContactFormErrors, IField, SvgIcons } from '@/interfaces/app';
+import { IContactForm, IContactFormErrors, IContactFromResponse, IField } from '@/interfaces/app';
 import ContactFormValidator from '@/validators/ContactFormValidator';
-import EmailService from '@/services/EmailService';
+import { sendEmail } from '@/app/actions';
+import { AlertTypes, SvgIcons } from '@/constants/enums';
 import { LangVars } from '@/constants/lang';
 
 interface IContactFormState {
@@ -18,8 +19,6 @@ interface IContactFormState {
   email: string;
   text: string;
   phone: string;
-  isSending: boolean;
-  isSuccess: boolean;
   errors: IContactFormErrors;
 }
 
@@ -31,18 +30,24 @@ interface IContactFromResponseState {
 
 const contactFormValidator: ContactFormValidator = new ContactFormValidator();
 
+const initialState: IContactFormState = {
+  name: '',
+  email: '',
+  text: '',
+  phone: '',
+  errors: {},
+};
+
+const initialFormState: IContactFromResponse = {
+  ok: null,
+  data: null,
+  errors: {},
+};
+
 const ContactFrom = () => {
-  const initialState: IContactFormState = {
-    name: '',
-    email: '',
-    text: '',
-    phone: '',
-    isSending: false,
-    isSuccess: false,
-    errors: {},
-  };
   const [state, setState] = useState<IContactFormState>(initialState);
-  const { name, email, text, phone, errors, isSending } = state;
+  const { name, email, text, phone, errors } = state;
+  const [formState, formAction] = useFormState(sendEmail, initialFormState);
   const [responseMessage, setResponseMessage] = useState<IContactFromResponseState | null>(null);
   const { type, title, value } = responseMessage || {};
   const { sectionTitle, itemTitle } = LangVars.Contact;
@@ -50,6 +55,28 @@ const ContactFrom = () => {
   const { contactForm: contactFormLabels } = LangVars.Labels;
   const { contactForm: contactFormPlaceholders } = LangVars.Placeholders;
   const { contactForm: contactFormButtons } = LangVars.Buttons;
+
+  useEffect(() => {
+    const { ok, errors = {} } = formState;
+
+    if (ok !== null) {
+      setState(
+        ok
+          ? initialState
+          : (prevState) => ({
+              ...prevState,
+              phone: '',
+              email: errors?.domain ? '' : prevState.email,
+              isPending: false,
+              errors,
+            }),
+      );
+      setResponseMessage({
+        type: ok ? AlertTypes.SUCCESS : AlertTypes.WARNING,
+        ...(ok ? emailSuccess : emailFailure),
+      });
+    }
+  }, [formState, emailSuccess, emailFailure]);
 
   const handleOnChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
@@ -76,70 +103,41 @@ const ContactFrom = () => {
 
       setState((prevState) => ({
         ...prevState,
-        [field]: state[field].trim(),
+        [field]: prevState[field].trim(),
         phone: '',
         errors: {
           ...prevState.errors,
-          [field]: fieldError,
+          [field]: state[field].trim() ? fieldError : undefined,
         },
-        isSending: false,
-        isSuccess: false,
       }));
     },
     [state],
   );
 
-  const handleOnSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleFormSubmit = useCallback(
+    (data: FormData) => {
+      setState((prevState) => ({
+        ...prevState,
+        isPending: true,
+      }));
 
-    setState((prevState) => ({
-      ...prevState,
-      isSending: true,
-      errors: {},
-    }));
-
-    if (contactFormValidator.validate(state) && !state.phone) {
-      const { ok, error = {} } = await EmailService.sendEmail(state);
-
-      if (ok) {
-        setState({
-          ...initialState,
-          isSuccess: true,
-        });
-
-        setResponseMessage({
-          type: AlertTypes.SUCCESS,
-          ...emailSuccess,
-        });
+      if (contactFormValidator.validate(state) && !state.phone) {
+        formAction(data);
       } else {
         setState((prevState) => ({
           ...prevState,
           phone: '',
-          email: error?.domain ? '' : prevState.email,
-          errors: {},
-          isSending: false,
-          isSuccess: false,
+          isPending: false,
+          errors: contactFormValidator.getErrors(),
         }));
-
-        setResponseMessage({
-          type: AlertTypes.WARNING,
-          ...emailFailure,
-        });
       }
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        phone: '',
-        errors: contactFormValidator.getErrors(),
-        isSending: false,
-        isSuccess: false,
-      }));
-    }
-  };
+    },
+    [formAction, state],
+  );
 
-  const contactForm = (
+  return (
     <div className='my-5'>
-      <form autoComplete='off' onSubmit={handleOnSubmit}>
+      <form action={handleFormSubmit}>
         <div>
           <Header level={2} className='my-5 text-xl md:text-2xl'>
             {sectionTitle}
@@ -148,14 +146,14 @@ const ContactFrom = () => {
             </span>
           </Header>
           <p>{itemTitle}</p>
-          {type && (
+          {formState.ok !== null && type && (
             <Alert type={type} className='mt-5'>
               <span className='font-bold'>{title} </span>
               <span className=''>{value}</span>
             </Alert>
           )}
         </div>
-        <div className='-mx-3 my-5 mb-6 flex flex-wrap'>
+        <div className='-mx-3 my-4 flex flex-wrap'>
           <div className='mb-3 w-full px-3 md:mb-0 md:w-1/2'>
             <CustomInput
               type='text'
@@ -165,7 +163,6 @@ const ContactFrom = () => {
               placeholder={contactFormPlaceholders.name}
               label={contactFormLabels.name}
               error={errors.name}
-              disabled={isSending}
               onChange={handleOnChange}
               onBlur={handleOnBlur('name')}
             />
@@ -179,7 +176,6 @@ const ContactFrom = () => {
               placeholder={contactFormPlaceholders.email}
               label={contactFormLabels.email}
               error={errors.email}
-              disabled={isSending}
               onChange={handleOnChange}
               onBlur={handleOnBlur('email')}
             />
@@ -204,21 +200,18 @@ const ContactFrom = () => {
             placeholder={contactFormPlaceholders.text}
             label={contactFormLabels.text}
             error={errors.text}
-            disabled={isSending}
             onChange={handleOnChange}
             onBlur={handleOnBlur('text')}
           />
         </div>
-        <div className='my-5'>
-          <CustomButton type='submit' text={contactFormButtons.actionButtonText} disabled={isSending}>
-            {isSending ? <Loader width={5} height={5} /> : <SvgIcon icon={SvgIcons.plane} className='h-5 w-5' />}
+        <div className='my-4'>
+          <CustomButton type='submit' text={contactFormButtons.actionButtonText}>
+            <SvgIcon icon={SvgIcons.plane} className='h-5 w-5' />
           </CustomButton>
         </div>
       </form>
     </div>
   );
-
-  return contactForm;
 };
 
 export default ContactFrom;

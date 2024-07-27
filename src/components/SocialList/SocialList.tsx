@@ -1,19 +1,18 @@
-import React, { FC } from 'react';
-import { ISocialItem } from '@/interfaces/app';
-import style from './SocialList.module.scss';
+import React from 'react';
+import SocialItem from '@/components/Socialtem';
+import { ISocial } from '@/interfaces/app';
+import { getSocials } from '@/helpers/api';
 
-interface ISocialListProps {
-  socials: ISocialItem[];
-}
+const SocialList = async () => {
+  const { socials } = await getSocials();
 
-const SocialList: FC<ISocialListProps> = ({ socials }) => (
-  <div className={`${style.socialList} mt-5 flex justify-center`}>
-    {socials.map(({ id, icon, url, title }: ISocialItem) => (
-      <a key={id} href={url} title={title} target='_blank' className={style.socialListItem} rel='noreferrer'>
-        <span className={style.icon} style={{ maskImage: `url(${icon})`, WebkitMaskImage: `url(${icon})` }} />
-      </a>
-    ))}
-  </div>
-);
+  return (
+    <div className='mt-5 flex justify-center'>
+      {socials.map((social: ISocial) => (
+        <SocialItem key={social.id} {...social} isLoading={false} />
+      ))}
+    </div>
+  );
+};
 
 export default SocialList;

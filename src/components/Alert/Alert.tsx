@@ -1,7 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import SvgIcon from '@/components/SvgIcon';
-import { SvgIcons } from '@/interfaces/app';
-import { AlertTypes } from '@/interfaces/app';
+import { AlertTypes, SvgIcons } from '@/constants/enums';
 
 interface IAlertProps {
   children: ReactNode;
