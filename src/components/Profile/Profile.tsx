@@ -6,6 +6,7 @@ import style from './Profile.module.scss';
 
 const Profile: FC = () => {
   const { name, position, location } = LangVars.Profile;
+
   return (
     <div className={`${style.wrapper} flex flex-col justify-center`}>
       <div

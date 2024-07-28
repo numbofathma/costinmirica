@@ -1,46 +1,42 @@
-export interface IProjectItem {
+export interface FetchState<T> {
+  data: T | undefined;
+  error: unknown;
+  isLoading: boolean;
+}
+
+export interface IProject {
   title: string;
   url: string;
   icon: string;
   text: string;
 }
 
-export interface ISocialItem {
+export interface ISocial {
   id: string;
   title: string;
   icon: string;
   url: string;
 }
 
-export enum AlertTypes {
-  INFO = 'info',
-  DANGER = 'danger',
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  DEFAULT = 'default',
-}
-
-export enum SvgIcons {
-  plane = 'plane',
-  follow = 'follow',
-  alert = 'alert',
-}
-
 export interface IEmail {
   name: string;
   email: string;
   text: string;
+  phone?: string;
 }
 
 export interface IContactForm extends IEmail {
   phone?: string;
 }
 
+export interface IContactFromResponse {
+  ok: boolean | null;
+  data?: string | null;
+  errors?: IContactFormErrors;
+}
+
 export interface IContactFormErrors {
-  name?: string;
-  email?: string;
-  text?: string;
-  phone?: string;
+  [field: string]: string | undefined;
 }
 
 export interface IValidator<I, O> {

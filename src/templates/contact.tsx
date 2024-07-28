@@ -8,11 +8,28 @@ interface IContactEmaiTemplatelProps {
 
 export const ContactEmailTemplate: FC<Readonly<IContactEmaiTemplatelProps>> = ({ name, email, text }) => (
   <div>
-    <p>You have new contact message from your personal site!</p>
-    <p>Name: {name}</p>
-    <p>Email {email}</p>
-    <div>Message:</div>
-    <p>{text}</p>
+    <strong>You have new contact message from your personal site!</strong>
+    <br />
+    <br />
+    <div>
+      <strong>Name:</strong>
+      <br />
+      {name}
+    </div>
+    <br />
+
+    <div>
+      <strong>Email:</strong>
+      <br />
+      {email}
+    </div>
+    <br />
+    <div>
+      <strong>Message:</strong>
+      <br />
+      <pre>{text}</pre>
+    </div>
+    <br />
   </div>
 );
 

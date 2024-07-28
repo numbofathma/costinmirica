@@ -1,14 +1,12 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import ProjectsItem from '@/components/ProjectsItem';
-import { IProjectItem } from '@/interfaces/app';
+import { IProject } from '@/interfaces/app';
 import { LangVars } from '@/constants/lang';
+import { getProjects } from '@/helpers/api';
 
-interface IProjectListProps {
-  projects: IProjectItem[];
-}
-
-const ProjectsList: FC<IProjectListProps> = ({ projects }) => {
+const ProjectsList = async () => {
+  const { projects = [] } = await getProjects();
   const { sectionTitle } = LangVars.ProjectsList;
 
   return (
@@ -22,9 +20,9 @@ const ProjectsList: FC<IProjectListProps> = ({ projects }) => {
 
       <div className='mt-4 w-full'>
         <div className='grid auto-rows-max grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'>
-          {projects.map((project: IProjectItem) => (
-            <ProjectsItem key={project.title} {...project} className='mt-5' />
-          ))}
+          {projects.map((project: IProject) => {
+            return <ProjectsItem key={project.title} {...project} className='mt-5' />;
+          })}
         </div>
       </div>
     </>

@@ -1,21 +1,16 @@
-import React, { FC } from 'react';
+import React from 'react';
 import ContactFrom from '@/fragments/ContactForm';
 import ProjectsList from '@/components/ProjectsList';
 import SocialList from '@/components/SocialList';
 import Profile from '@/components/Profile';
 import ProfileDescription from '@/components/ProfileDescription';
-import ProjectRepository from '@/repositories/ProjectRepository';
-import SocialRepository from '@/repositories/SocialRepository';
 
-const HomePage: FC = () => {
-  const projects = new ProjectRepository().getAll();
-  const socials = new SocialRepository().getAll();
-
+const Page = () => {
   return (
     <div className='container m-auto grid max-w-screen-xl gap-5 border border-gray-300 bg-white p-5 font-light shadow-xl lg:p-10 xl:my-5'>
       <div className='grid-cols-12'>
         <Profile />
-        <SocialList socials={socials} />
+        <SocialList />
       </div>
 
       <div className='grid-cols-12'>
@@ -23,7 +18,7 @@ const HomePage: FC = () => {
       </div>
 
       <div className='mt-5 grid-cols-12'>
-        <ProjectsList projects={projects} />
+        <ProjectsList />
       </div>
       <div className='grid-cols-12'>
         <ContactFrom />
@@ -32,4 +27,4 @@ const HomePage: FC = () => {
   );
 };
 
-export default HomePage;
+export default Page;
