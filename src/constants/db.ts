@@ -1,5 +1,6 @@
 import { IProject, ISocial } from '@/interfaces/app';
 import { BASE_URL } from '.';
+import { SvgIcons } from './enums';
 
 export const projects: IProject[] = [
   {
@@ -49,19 +50,13 @@ export const socials: ISocial[] = [
   {
     id: 'linkedin',
     title: 'LinkedIn',
-    icon: '/social/linkedin-svgrepo-com.svg',
+    icon: SvgIcons.linkedin,
     url: 'http://linkedin.com/in/costinmirica',
   },
   {
     id: 'github',
     title: 'GitHub',
-    icon: '/social/github-svgrepo-com.svg',
+    icon: SvgIcons.github,
     url: 'https://github.com/numbofathma',
   },
-  // {
-  //   id: 'email',
-  //   title: 'Email',
-  //   icon: '/social/mail-svgrepo-com.svg',
-  //   url: 'mailto:',
-  // },
 ];

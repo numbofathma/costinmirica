@@ -2,7 +2,8 @@
 // Thank you!
 import { MxRecord } from 'dns';
 import { Resolver } from 'dns/promises';
-import { IValidator, IField, DomainCheckTypes } from '@/interfaces/app';
+import { IValidator, IField } from '@/interfaces/app';
+import { DomainCheckTypes } from '@/constants/enums';
 import { LangVars } from '@/constants/lang';
 
 class DomainValidator implements IValidator<string, IField<string>> {

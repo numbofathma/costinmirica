@@ -1,8 +1,4 @@
-export interface FetchState<T> {
-  data: T | undefined;
-  error: unknown;
-  isLoading: boolean;
-}
+import { SvgIcons } from '@/constants/enums';
 
 export interface IProject {
   title: string;
@@ -14,7 +10,7 @@ export interface IProject {
 export interface ISocial {
   id: string;
   title: string;
-  icon: string;
+  icon: SvgIcons;
   url: string;
 }
 
@@ -46,12 +42,6 @@ export interface IValidator<I, O> {
 
 export interface IField<T> {
   [key: string]: T;
-}
-
-export enum DomainCheckTypes {
-  MX = 'mx',
-  LOOKUP = 'lookup',
-  NS = 'ns',
 }
 
 interface IRange {

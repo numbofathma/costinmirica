@@ -2,21 +2,12 @@
   display: flex;
   align-items: center;
   font-size: 1rem;
-  border: 1px solid;
-  @apply rounded border-teal-900 text-teal-700;
-  padding: 10px 40px;
-  font-weight: bold;
-  @apply transition duration-500;
+
+  @apply px-9 py-3;
 
   &:hover,
-  &:active,
-  &:visited {
-    border: 1px solid;
-    @apply border-teal-900 bg-teal-700;
-    color: #ffffff;
-  }
-
-  &:disabled {
-    @apply border-teal-900 bg-white text-teal-700;
+  &:focus,
+  &:active {
+    @apply shadow-md;
   }
 }

@@ -26,7 +26,7 @@
     "react/react-in-jsx-scope": "off", // Not needed in Next.js
     "react/jsx-props-no-spreading": "off", // Allowing spread props
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "error",
     "import/prefer-default-export": "off",
     "comma-dangle": ["error", {
       "arrays": "always-multiline",

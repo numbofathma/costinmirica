@@ -1,11 +1,10 @@
 'use client';
 
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import { useFormState } from 'react-dom';
+import React, { ChangeEvent, useCallback, useEffect, useState, useActionState } from 'react';
 import Alert from '@/components/Alert';
 import CustomInput from '@/components/CustomInput';
 import CustomTextarea from '@/components/CustomTextarea';
-import CustomButton from '@/components/CustomButton';
+import FormButton from '@/components/FormButton';
 import Header from '@/components/Header';
 import SvgIcon from '@/components/SvgIcon';
 import { IContactForm, IContactFormErrors, IContactFromResponse, IField } from '@/interfaces/app';
@@ -47,7 +46,7 @@ const initialFormState: IContactFromResponse = {
 const ContactFrom = () => {
   const [state, setState] = useState<IContactFormState>(initialState);
   const { name, email, text, phone, errors } = state;
-  const [formState, formAction] = useFormState(sendEmail, initialFormState);
+  const [formState, formAction] = useActionState(sendEmail, initialFormState);
   const [responseMessage, setResponseMessage] = useState<IContactFromResponseState | null>(null);
   const { type, title, value } = responseMessage || {};
   const { sectionTitle, itemTitle } = LangVars.Contact;
@@ -205,9 +204,9 @@ const ContactFrom = () => {
           />
         </div>
         <div className='my-4'>
-          <CustomButton type='submit' text={contactFormButtons.actionButtonText}>
-            <SvgIcon icon={SvgIcons.plane} className='h-5 w-5' />
-          </CustomButton>
+          <FormButton type='submit' text={contactFormButtons.actionButtonText}>
+            <SvgIcon icon={SvgIcons.send} className='h-5 w-5' />
+          </FormButton>
         </div>
       </form>
     </div>

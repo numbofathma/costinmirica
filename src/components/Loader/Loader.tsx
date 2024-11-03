@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 
 interface ILoaderProps {
   width: number;
@@ -6,12 +6,12 @@ interface ILoaderProps {
   className?: string;
 }
 
-const Loader: FC<ILoaderProps> = ({ width = 5, height = 5, className = 'fill-white text-teal-700' }) => {
+const Loader: FC<ILoaderProps> = ({ width = 5, height = 5, className = '' }) => {
   return (
-    <div role='status'>
+    <div role='status' className={`h-${height} w-${width}`}>
       <svg
         aria-hidden='true'
-        className={`inline h-${height} w-${width} animate-spin ${className}`}
+        className={`h-${height} w-${width} animate-spin ${className}`}
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -30,4 +30,4 @@ const Loader: FC<ILoaderProps> = ({ width = 5, height = 5, className = 'fill-whi
   );
 };
 
-export default memo(Loader);
+export default Loader;
