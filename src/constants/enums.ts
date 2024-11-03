@@ -7,7 +7,15 @@ export enum AlertTypes {
 }
 
 export enum SvgIcons {
-  plane = 'plane',
-  follow = 'follow',
+  send = 'send',
+  follow = 'right',
   alert = 'alert',
+  linkedin = 'linkedin',
+  github = 'github',
+}
+
+export enum DomainCheckTypes {
+  MX = 'mx',
+  LOOKUP = 'lookup',
+  NS = 'ns',
 }

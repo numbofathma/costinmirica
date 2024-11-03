@@ -2,11 +2,12 @@
 
 import { ReactElement } from 'react';
 import { Resend } from 'resend';
-import { DomainCheckTypes, IContactFormErrors, IContactFromResponse } from '@/interfaces/app';
+import { ContactEmailTemplate } from '@/templates/contact';
+import { IContactFormErrors, IContactFromResponse } from '@/interfaces/app';
+import { DomainCheckTypes } from '@/constants/enums';
 import { LangVars } from '@/constants/lang';
 import ContactFormValidator from '@/validators/ContactFormValidator';
 import DomainValidator from '@/validators/DomainValidator';
-import { ContactEmailTemplate } from '@/templates/contact';
 
 export const sendEmail = async (_prevState: IContactFromResponse, formData: FormData): Promise<IContactFromResponse> => {
   const resend = new Resend(process.env.RESEND_API_KEY);

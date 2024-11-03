@@ -3,5 +3,5 @@ import { NextResponse } from 'next/server';
 import { projects } from '@/constants/db';
 
 export async function GET() {
-  return NextResponse.json({ data: projects, ok: true });
+  return NextResponse.json({ data: projects, ok: true }, { status: 200 });
 }

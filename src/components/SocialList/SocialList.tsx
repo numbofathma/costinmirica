@@ -9,7 +9,7 @@ const SocialList = async () => {
   return (
     <div className='mt-5 flex justify-center'>
       {socials.map((social: ISocial) => (
-        <SocialItem key={social.id} {...social} isLoading={false} />
+        <SocialItem key={social.id} {...social} />
       ))}
     </div>
   );

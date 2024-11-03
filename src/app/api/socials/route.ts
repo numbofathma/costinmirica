@@ -3,5 +3,5 @@ import { NextResponse } from 'next/server';
 import { socials } from '@/constants/db';
 
 export async function GET() {
-  return NextResponse.json({ data: socials, ok: true });
+  return NextResponse.json({ data: socials, ok: true }, { status: 200 });
 }

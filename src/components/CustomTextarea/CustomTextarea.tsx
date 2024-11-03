@@ -45,7 +45,7 @@ const CustomTextarea: FC<ICustomTextareaProps> = ({
         disabled={disabled || pending}
         onChange={onChange}
         onBlur={onBlur}
-        rows={5}
+        rows={10}
       />
       <div className='bold text-xs text-red-500' style={{ height: '1rem', visibility: error ? 'visible' : 'hidden' }}>
         {error}
