@@ -17,7 +17,7 @@ const ProjectsItem: FC<IProjectItemProps> = ({ url, title, icon, text }) => {
   const { itemAlt, itemTitle, itemActionText } = LangVars.ProjectsList;
 
   return (
-    <div className='card flex transform flex-col rounded border border-gray-300 p-5 shadow-md transition duration-500 hover:border-teal-700'>
+    <div className='card flex transform flex-col rounded border border-gray-300 p-5 shadow-md hover:border-teal-700'>
       <div className='flex-grow'>
         <div className='mb-5'>
           <a href={`${url}?referrer=cv`} title={title} target='_blank' rel='noreferrer'>
