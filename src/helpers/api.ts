@@ -16,7 +16,7 @@ export const getProjects = async () => {
   } catch (_) {
     return {
       ok: false,
-      socials: [],
+      projects: [],
     };
   }
 };
