@@ -3,11 +3,29 @@
 import { ReactElement } from 'react';
 import { Resend } from 'resend';
 import { ContactEmailTemplate } from '@/templates/contact';
+import { IEmail } from '@/interfaces/api';
 import { IContactFormErrors, IContactFromResponse } from '@/interfaces/app';
 import { DomainCheckTypes } from '@/constants/enums';
 import { LangVars } from '@/constants/lang';
 import ContactFormValidator from '@/validators/ContactFormValidator';
 import DomainValidator from '@/validators/DomainValidator';
+
+const getFormDataValue = <T extends string>(formData: FormData, key: T): string => {
+  const value = formData.get(key);
+  if (typeof value !== 'string') {
+    return '';
+  }
+  return value;
+};
+
+const extractFormData = (formData: FormData): IEmail => {
+  return {
+    email: getFormDataValue(formData, 'email').toLowerCase(),
+    text: getFormDataValue(formData, 'text'),
+    name: getFormDataValue(formData, 'name'),
+    phone: getFormDataValue(formData, 'phone'),
+  };
+};
 
 export const sendEmail = async (_prevState: IContactFromResponse, formData: FormData): Promise<IContactFromResponse> => {
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -16,10 +34,7 @@ export const sendEmail = async (_prevState: IContactFromResponse, formData: Form
   const domainValidator = new DomainValidator(DomainCheckTypes.MX);
   const { mock, general } = LangVars.Validation.General;
 
-  const email = formData.get('email') as string;
-  const text = formData.get('text') as string;
-  const name = formData.get('name') as string;
-  const phone = formData.get('phone') as string;
+  const { email, text, name, phone } = extractFormData(formData);
 
   let errors: IContactFormErrors = {};
 

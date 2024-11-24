@@ -1,4 +1,5 @@
 import { SvgIcons } from '@/constants/enums';
+import { IEmail } from './api';
 
 export interface IProject {
   title: string;
@@ -14,16 +15,7 @@ export interface ISocial {
   url: string;
 }
 
-export interface IEmail {
-  name: string;
-  email: string;
-  text: string;
-  phone?: string;
-}
-
-export interface IContactForm extends IEmail {
-  phone?: string;
-}
+export interface IContactForm extends IEmail {}
 
 export interface IContactFromResponse {
   ok: boolean | null;
