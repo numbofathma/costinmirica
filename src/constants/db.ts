@@ -33,7 +33,7 @@ export const projects: IProject[] = [
     url: 'https://roninmobile.eu/project/twin-dots-challenge',
     icon: `${BASE_URL}/static/projects/twindots.webp`,
     text:
-      'Twin Dots Challenge is a hyper casual little puzzle, developed in TypeScript with Phaser Framework, available on both Android and' +
+      'Twin Dots Challenge is a hyper-casual little puzzle, developed in TypeScript with Phaser Framework, available on both Android and' +
       " iOS platform. For building the game for both platforms (Android & iOS) I've used the Cordova Project.",
   },
   {
@@ -41,7 +41,7 @@ export const projects: IProject[] = [
     url: 'https://roninmobile.eu/project/13-arrows',
     icon: `${BASE_URL}/static/projects/arrows.webp`,
     text:
-      '13 Arrows is a hyper casual archery game for those moments when you are bored, built with Typescript and Phaser Framework.' +
+      '13 Arrows is a hyper-casual archery game for those moments when you are bored, built with Typescript and Phaser Framework.' +
       ' Try your best to get a higher score using the arrows you have at your disposal.',
   },
 ];
