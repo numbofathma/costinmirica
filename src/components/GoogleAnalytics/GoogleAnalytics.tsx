@@ -2,7 +2,6 @@ import React from 'react';
 import Script from 'next/script';
 import { GA_ID } from '@/constants';
 
-
 const GoogleAnalytics = () => {
   return (
     <>
