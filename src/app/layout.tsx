@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Inconsolata } from 'next/font/google';
-import { BASE_URL, DEV_MODE, GA_ID } from '@/constants';
+import { BASE_URL, DEV_MODE } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -59,7 +59,7 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang='en'>
     <body className={`${inconsolata.className}`}>{children}</body>
-    {!DEV_MODE && <GoogleAnalytics gaId={GA_ID} />}
+    {!DEV_MODE && <GoogleAnalytics />}
   </html>
 );
 
