@@ -1,22 +1,19 @@
-import React, { FC } from 'react';
-import Script, { ScriptProps } from 'next/script';
+import React from 'react';
+import Script from 'next/script';
+import { COOKIEBOT_ID, GA_ID } from '@/constants';
 
-interface IGoogleAnalyticsProps extends ScriptProps {
-  gaId: string;
-}
-
-const GoogleAnalytics: FC<IGoogleAnalyticsProps> = ({ gaId }) => {
+const GoogleAnalytics = () => {
   return (
     <>
-      <Script id='cookieyes' type='text/javascript' src='https://cdn-cookieyes.com/client_data/fdf3173583a2e15614a9a4da/script.js' />
-      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} defer strategy='lazyOnload' />
+      <Script id='Cookiebot' src='https://consent.cookiebot.com/uc.js' data-cbid={COOKIEBOT_ID} data-blockingmode='auto' type='text/javascript' />
+      <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} defer strategy='lazyOnload' />
       <Script id='google-analytics' defer strategy='lazyOnload'>
         {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){window.dataLayer.push(arguments)};
         gtag('js', new Date());
 
-        gtag('config', '${gaId}');
+        gtag('config', '${GA_ID}');
       `}
       </Script>
     </>
