@@ -11,7 +11,7 @@ const ProjectsList = async () => {
 
   return (
     <>
-      <Header level={2} className='text-xl md:text-2xl'>
+      <Header level={2} className='mb-10 text-xl md:text-2xl'>
         {sectionTitle}
         <span className='text-teal-700'>
           <i className='text-blink'>_</i>
@@ -19,9 +19,9 @@ const ProjectsList = async () => {
       </Header>
 
       <div className='mt-4 w-full'>
-        <div className='grid auto-rows-max grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'>
+        <div className='grid auto-rows-max grid-cols-1 gap-10'>
           {projects.map((project: IProject) => {
-            return <ProjectsItem key={project.title} {...project} className='mt-5' />;
+            return <ProjectsItem key={project.title} {...project} />;
           })}
         </div>
       </div>
