@@ -20,19 +20,17 @@ const ProjectsItem: FC<IProjectItemProps> = ({ url, title, icon, text }) => {
     <div className='card flex transform flex-col rounded border border-gray-300 p-5 shadow-md hover:border-teal-700'>
       <div className='flex-grow'>
         <div className='mb-5'>
-          <a href={`${url}?referrer=cv`} title={title} target='_blank' rel='noreferrer'>
-            <Header level={3} className='mr-2 flex flex-grow items-center text-base md:text-lg'>
-              <Image
-                width={72}
-                height={72}
-                className='mr-3 max-h-[72px] rounded-lg border border-gray-300 bg-teal-700'
-                src={icon}
-                alt={`${itemAlt} "${title}"`}
-                priority={false}
-              />
-              {title}
-            </Header>
-          </a>
+          <Header level={3} className='mr-2 flex flex-grow items-center text-base md:text-lg'>
+            <Image
+              width={72}
+              height={72}
+              className='mr-3 max-h-[72px] rounded-lg border border-gray-300 bg-teal-700'
+              src={icon}
+              alt={`${itemAlt} "${title}"`}
+              priority={false}
+            />
+            {title}
+          </Header>
         </div>
         <div className=''>
           <p className='text-sm font-light'>{text}</p>

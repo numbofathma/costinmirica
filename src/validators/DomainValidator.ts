@@ -72,7 +72,7 @@ class DomainValidator implements IValidator<string, IField<string>> {
         this.errors = { domain: couldNotResolve };
         response = { isValid: false, addresses: [] };
       }
-    } catch (error) {
+    } catch (_) {
       this.errors = { domain: couldNotResolve };
       response = { isValid: false, addresses: [] };
     }

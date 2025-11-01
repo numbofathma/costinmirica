@@ -15,7 +15,7 @@ export interface ISocial {
   url: string;
 }
 
-export interface IContactForm extends IEmail {}
+export type IContactForm = IEmail;
 
 export interface IContactFromResponse {
   ok: boolean | null;

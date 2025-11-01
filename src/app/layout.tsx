@@ -6,6 +6,7 @@ import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import '@/styles/globals.scss';
+import CookieBanner from '@/components/CookieBanner';
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
@@ -58,8 +59,11 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang='en'>
-    <body className={`${inconsolata.className}`}>{children}</body>
-    {!DEV_MODE && <GoogleAnalytics />}
+    <body className={`${inconsolata.className}`}>
+      {!DEV_MODE && <GoogleAnalytics />}
+      {children}
+      <CookieBanner />
+    </body>
   </html>
 );
 

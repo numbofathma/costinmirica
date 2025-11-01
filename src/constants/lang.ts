@@ -39,6 +39,11 @@ export const LangVars = {
     itemTitle: 'Check out some in-game screenshots of',
     itemActionText: 'IN-GAME SCREENSHOTS',
   },
+  CookieBanner: {
+    agreementText: 'We use cookies to collect anonymous analytics data to improve our site.\nDo you consent to tracking?',
+    buttonTextAccept: 'Accept',
+    buttonTextReject: 'Reject',
+  },
   Contact: {
     sectionTitle: 'Getting in touch is easy',
     itemTitle: `Interested in working together or hire me? Drop me a line and let's start to create awesome stuff!`,
@@ -47,6 +52,11 @@ export const LangVars = {
     General: {
       mock: 'Good luck, bro!',
       general: 'Error occured while sending your message!',
+    },
+    Recaptcha: {
+      recaptchaInitFailure: 'reCAPTCHA could not be initialized. Please refresh the page or try again later.',
+      verificationFailure: 'reCAPTCHA verification failed. If this is a mistake, please contact us directly at ###{contactEmail}###.',
+      missingToken: 'reCAPTCHA verification failed. Please refresh the page or try again later.',
     },
     DomainValidator: {
       notFound: 'Domain could not be extracted',

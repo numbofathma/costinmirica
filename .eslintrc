@@ -21,6 +21,14 @@
     "no-console": "error",
     "prettier/prettier": "error",
     "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "warn", // or "error"
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     "react/jsx-filename-extension": ["off", { "extensions": [".tsx"] }], // Only .tsx files for JSX
     "import/no-unresolved": "off", // TypeScript takes care of this
     "react/react-in-jsx-scope": "off", // Not needed in Next.js
