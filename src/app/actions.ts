@@ -59,7 +59,7 @@ export const sendEmail = async (_prevState: IContactFromResponse, formData: Form
   }
 
   // reCAPTCHA validation
-  if (recaptchaToken) {
+  if (!recaptchaToken) {
     errors = { ...errors, recaptcha };
   } else {
     try {
