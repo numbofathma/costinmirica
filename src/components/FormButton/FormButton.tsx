@@ -1,6 +1,5 @@
 'use client';
 
-import React, { FC } from 'react';
 import { useFormStatus } from 'react-dom';
 import CustomButton from '@/components/CustomButton';
 import Loader from '@/components/Loader';
@@ -14,7 +13,7 @@ interface IFormButtonProps {
   children?: React.ReactNode;
 }
 
-const FormButton: FC<IFormButtonProps> = ({ text, children, onClick, type = 'button', disabled = false }) => {
+const FormButton = ({ text, children, onClick, type = 'button', disabled = false }: IFormButtonProps) => {
   const { pending } = useFormStatus();
 
   return (

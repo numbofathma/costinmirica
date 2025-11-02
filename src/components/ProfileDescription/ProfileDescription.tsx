@@ -1,4 +1,3 @@
-import React from 'react';
 import { LangVars } from '@/constants/lang';
 
 const ProfileDescription = () => (

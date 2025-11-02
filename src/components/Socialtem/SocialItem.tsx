@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { ISocial } from '@/interfaces/app';
 import style from './SocialItem.module.scss';
 import SvgIcon from '../SvgIcon';

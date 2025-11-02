@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 interface IHeader {
   children: React.ReactNode;
@@ -6,7 +6,6 @@ interface IHeader {
   className?: string;
 }
 
-const Header: FC<IHeader> = ({ level = 1, className, children }) =>
-  React.createElement(`h${level}`, { className: `font-light ${className}` }, children);
+const Header = ({ level = 1, className, children }: IHeader) => React.createElement(`h${level}`, { className: `font-light ${className}` }, children);
 
 export default Header;

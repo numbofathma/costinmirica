@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { memo } from 'react';
 import { useFormStatus } from 'react-dom';
 
 interface ICustomTextareaProps {
@@ -14,7 +14,7 @@ interface ICustomTextareaProps {
   onBlur?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const CustomTextarea: FC<ICustomTextareaProps> = ({
+const CustomTextarea = ({
   label,
   id,
   placeholder,
@@ -25,7 +25,7 @@ const CustomTextarea: FC<ICustomTextareaProps> = ({
   disabled = false,
   className = '',
   onBlur,
-}) => {
+}: ICustomTextareaProps) => {
   const { pending } = useFormStatus();
 
   return (

@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
-import { BASE_URL } from '@/constants';
+import { CDN_URL } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import Header from '@/components/Header';
 import style from './Profile.module.scss';
 
-const Profile: FC = () => {
+const Profile = () => {
   const { name, position, location } = LangVars.Profile;
 
   return (
@@ -12,7 +11,7 @@ const Profile: FC = () => {
       <div
         className={`${style.picture} mx-auto my-7`}
         style={{
-          backgroundImage: `url(${BASE_URL}/static/costin-mirica.webp)`,
+          backgroundImage: `url(${CDN_URL}/static/pixel-profile-picture.webp)`,
         }}
       />
       <div className='flex flex-col text-center'>

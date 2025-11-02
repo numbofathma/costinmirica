@@ -1,9 +1,9 @@
 {
   "name": "costinmirica",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
-    "next": "^15.5.4",
+    "next": "^16.0.2-canary.4",
     "react": "^19",
     "react-dom": "^19",
     "resend": "^4.0.0",

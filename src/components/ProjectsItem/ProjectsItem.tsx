@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import SvgIcon from '@/components/SvgIcon';
@@ -13,7 +13,7 @@ interface IProjectItemProps {
   className?: string;
 }
 
-const ProjectsItem: FC<IProjectItemProps> = ({ url, title, icon, text }) => {
+const ProjectsItem = ({ url, title, icon, text }: IProjectItemProps) => {
   const { itemAlt, itemTitle, itemActionText } = LangVars.ProjectsList;
 
   return (

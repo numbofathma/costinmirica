@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import SvgIcon from '@/components/SvgIcon';
 import { AlertTypes, SvgIcons } from '@/constants/enums';
 
@@ -16,7 +16,7 @@ const classNames: Record<AlertTypes, string> = {
   [AlertTypes.DEFAULT]: ' border-gray-300 bg-gray-50 p-4 text-sm text-gray-800',
 };
 
-const Alert: FC<IAlertProps> = ({ children, type = AlertTypes.DEFAULT, className = '' }) => (
+const Alert = ({ children, type = AlertTypes.DEFAULT, className = '' }: IAlertProps) => (
   <div className={`mb-4 flex items-center rounded-lg border ${className} ${classNames[type]}`} role='alert'>
     <SvgIcon icon={SvgIcons.alert} className='me-3 inline h-4 w-4 flex-shrink-0 bg-current' />
     <span className='sr-only'>Action message</span>
