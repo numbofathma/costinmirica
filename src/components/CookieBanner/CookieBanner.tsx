@@ -34,8 +34,8 @@ const CookieBanner = () => {
       <div className='mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 px-6 py-4 sm:flex-row'>
         <p className='whitespace-pre-line text-center text-sm text-gray-700 sm:text-left'>
           {agreementText}{' '}
-          <a href='https://business.safety.google/privacy/' target='_blank' rel='noreferrer'>
-            Learn more
+          <a href='https://business.safety.google/privacy/' title='Google Privacy Policy' target='_blank' rel='noreferrer'>
+            Google Privacy Policy
           </a>
           {'.'}
         </p>

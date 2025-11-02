@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
+import Head from 'next/head';
 import { Inconsolata } from 'next/font/google';
 import { CDN_URL, DEV_MODE } from '@/constants';
 import { LangVars } from '@/constants/lang';
@@ -11,6 +12,7 @@ import CookieBanner from '@/components/CookieBanner';
 const inconsolata = Inconsolata({
   subsets: ['latin'],
   variable: '--font-inconsolata',
+  display: 'swap',
 });
 
 const { name, title, description, keywords } = LangVars.Metadata;
@@ -60,8 +62,14 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang='en'>
-    <body className={`${inconsolata.className}`}>
+    <Head>
+      <link rel='preconnect' href='https://fonts.googleapis.com' />
+      <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+      <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
+      <link rel='dns-prefetch' href='https://www.google.com' />
       {!DEV_MODE && <GoogleAnalytics />}
+    </Head>
+    <body className={`${inconsolata.className}`}>
       {children}
       <CookieBanner />
     </body>

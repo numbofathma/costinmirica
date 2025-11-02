@@ -47,7 +47,7 @@ const CustomTextarea = ({
         onBlur={onBlur}
         rows={10}
       />
-      <div className='bold text-xs text-red-500' style={{ height: '1rem', visibility: error ? 'visible' : 'hidden' }}>
+      <div className='bold text-xs text-red-700' style={{ height: '1rem', visibility: error ? 'visible' : 'hidden' }}>
         {error}
       </div>
     </div>

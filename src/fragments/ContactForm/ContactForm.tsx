@@ -12,6 +12,7 @@ import ContactFormValidator from '@/validators/ContactFormValidator';
 import { sendEmail } from '@/app/actions';
 import { AlertTypes, SvgIcons } from '@/constants/enums';
 import { LangVars } from '@/constants/lang';
+import { RECAPTCHA_SITE_KEY } from '@/constants';
 
 interface IContactFormState {
   name: string;
@@ -42,8 +43,6 @@ const initialFormState: IContactFromResponse = {
   data: null,
   errors: {},
 };
-
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 
 const ContactFrom = () => {
   const [state, setState] = useState<IContactFormState>(initialState);
@@ -286,7 +285,7 @@ const ContactFrom = () => {
           <FormButton type='submit' text={contactFormButtons.actionButtonText}>
             <SvgIcon icon={SvgIcons.send} className='h-5 w-5' />
           </FormButton>
-          {errors.recaptcha && <div className='bold my-2 text-xs text-red-500'>{errors.recaptcha}</div>}
+          {errors.recaptcha && <div className='bold my-2 text-xs text-red-700'>{errors.recaptcha}</div>}
         </div>
       </form>
     </div>
