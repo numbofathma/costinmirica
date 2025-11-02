@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent, useCallback, useEffect, useState, useActionState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState, useActionState, startTransition } from 'react';
 import Alert from '@/components/Alert';
 import CustomInput from '@/components/CustomInput';
 import CustomTextarea from '@/components/CustomTextarea';
@@ -78,14 +78,12 @@ const ContactFrom = () => {
         setRecaptchaToken(token);
         setState((prevState) => ({
           ...prevState,
-          isPending: false,
           errors: { recaptcha: undefined },
         }));
       } catch (_) {
         setRecaptchaToken('');
         setState((prevState) => ({
           ...prevState,
-          isPending: false,
           errors: { recaptcha: recaptchaInitFailure },
         }));
       }
@@ -99,7 +97,7 @@ const ContactFrom = () => {
     const waitForGrecaptcha = () => {
       if (window.grecaptcha) {
         executeRecaptcha();
-        interval = setInterval(executeRecaptcha, 2 * 60 * 1000); // refresh token every 2 min
+        interval = setInterval(executeRecaptcha, 2 * 60 * 1000);
       } else {
         setTimeout(waitForGrecaptcha, 500);
       }
@@ -124,7 +122,6 @@ const ContactFrom = () => {
               ...prevState,
               phone: '',
               email: errors?.domain ? '' : prevState.email,
-              isPending: false,
               errors: {
                 ...errors,
                 recaptcha: undefined,
@@ -178,12 +175,9 @@ const ContactFrom = () => {
 
   const handleFormSubmit = useCallback(
     (data: FormData) => {
-      setState((prevState) => ({ ...prevState, isPending: true }));
-
       if (!recaptchaToken) {
         setState((prevState) => ({
           ...prevState,
-          isPending: false,
           errors: { recaptcha: missingToken },
         }));
         return;
@@ -193,7 +187,6 @@ const ContactFrom = () => {
         setState((prevState) => ({
           ...prevState,
           phone: '',
-          isPending: false,
           errors: {
             recaptcha: undefined,
             ...contactFormValidator.getErrors(),
@@ -203,14 +196,23 @@ const ContactFrom = () => {
       }
 
       data.set('recaptchaToken', recaptchaToken);
-      formAction(data);
+
+      startTransition(() => {
+        formAction(data);
+      });
     },
     [formAction, state, missingToken, recaptchaToken],
   );
 
   return (
     <div>
-      <form action={handleFormSubmit}>
+      <form
+        onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          handleFormSubmit(formData);
+        }}
+      >
         <div>
           <Header level={2} className='mb-10 text-xl md:text-2xl'>
             {sectionTitle}
@@ -226,6 +228,7 @@ const ContactFrom = () => {
             </Alert>
           )}
         </div>
+
         <div className='-mx-3 my-4 flex flex-wrap'>
           <div className='mb-3 w-full px-3'>
             <CustomInput
@@ -265,6 +268,7 @@ const ContactFrom = () => {
             />
           </div>
         </div>
+
         <div>
           <CustomTextarea
             id='text'
@@ -277,6 +281,7 @@ const ContactFrom = () => {
             onBlur={handleOnBlur('text')}
           />
         </div>
+
         <div className='my-4'>
           <FormButton type='submit' text={contactFormButtons.actionButtonText}>
             <SvgIcon icon={SvgIcons.send} className='h-5 w-5' />

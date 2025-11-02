@@ -1,4 +1,3 @@
-import React from 'react';
 import ContactForm from '@/fragments/ContactForm';
 import ProjectsList from '@/components/ProjectsList';
 import SocialList from '@/components/SocialList';

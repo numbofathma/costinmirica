@@ -72,3 +72,25 @@ a {
     color: inherit;
   }
 }
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.console-cursor {
+  display: inline-block;
+  width: 0.5ch; /* width of one character cell */
+  height: 1em; /* match the line height of text */
+  background-color: #22c55e; /* Tailwind green-500 */
+  vertical-align: -0.15em; /* adjust to align with text baseline */
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+}

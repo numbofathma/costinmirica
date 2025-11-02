@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '@/components/Header';
 import ProjectsItem from '@/components/ProjectsItem';
 import { IProject } from '@/interfaces/app';

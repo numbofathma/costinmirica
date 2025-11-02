@@ -1,12 +1,10 @@
-import { headers } from 'next/headers';
 import { ISocial } from '@/interfaces/app';
 import { IProject } from '@/interfaces/app';
+import { BASE_URL } from '@/constants';
 
 export const getProjects = async () => {
-  const appUrl = (await headers()).get('x-current-path');
-
   try {
-    const response = await fetch(`${appUrl}/api/projects`);
+    const response = await fetch(`${BASE_URL}/api/projects`);
     const { data = [], ok } = await response.json();
 
     return {
@@ -22,10 +20,8 @@ export const getProjects = async () => {
 };
 
 export const getSocials = async () => {
-  const appUrl = (await headers()).get('x-current-path');
-
   try {
-    const response = await fetch(`${appUrl}/api/socials`);
+    const response = await fetch(`${BASE_URL}/api/socials`);
     const { data = [], ok } = await response.json();
 
     return {

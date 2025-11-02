@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Inconsolata } from 'next/font/google';
-import { BASE_URL, DEV_MODE } from '@/constants';
+import { CDN_URL, DEV_MODE } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: 'https://costinmirica.com',
     type: 'website',
     title,
-    images: [{ url: `${BASE_URL}/static/img/costin-mirica.webp` }],
+    images: [{ url: `${CDN_URL}/static/img/costin-mirica.webp` }],
     description,
   },
   twitter: {
@@ -34,19 +34,20 @@ export const metadata: Metadata = {
     site: 'https://costinmirica.com/',
     title,
     description,
-    images: [{ url: `${BASE_URL}/static/img/costin-mirica.webp` }],
+    images: [{ url: `${CDN_URL}/static/img/costin-mirica.webp` }],
   },
   icons: {
     shortcut: `favicon.ico`,
     icon: icon.map((size: number) => ({
-      url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
+      url: `${CDN_URL}/icons/icon-${size}x${size}.png`,
       sizes: `${size}x${size}`,
     })),
     apple: apple.map((size: number) => ({
-      url: `${BASE_URL}/icons/icon-${size}x${size}.png`,
+      url: `${CDN_URL}/icons/icon-${size}x${size}.png`,
       sizes: `${size}x${size}`,
     })),
   },
+  manifest: '/manifest.json',
 };
 
 export const viewport: Viewport = {

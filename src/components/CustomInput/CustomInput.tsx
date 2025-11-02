@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { useFormStatus } from 'react-dom';
 
 interface ICustomInputProps {
@@ -15,7 +15,7 @@ interface ICustomInputProps {
   onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CustomInput: FC<ICustomInputProps> = ({
+const CustomInput = ({
   label,
   id,
   placeholder,
@@ -27,7 +27,7 @@ const CustomInput: FC<ICustomInputProps> = ({
   disabled = false,
   className = '',
   onBlur,
-}) => {
+}: ICustomInputProps) => {
   const { pending } = useFormStatus();
 
   return (
