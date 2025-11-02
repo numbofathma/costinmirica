@@ -30,7 +30,7 @@ export default function Error({ reset }: { error: Error & { digest?: string }; r
             <span className='ml-2 text-white'>npm run this-app</span>
           </p>
 
-          <p className='mt-4 text-red-500'>➜ Error: Something went wrong! Press enter to try again.</p>
+          <p className='mt-4 text-red-700'>➜ Error: Something went wrong! Press enter to try again.</p>
 
           <p className='mt-6 text-green-400'>
             guest@this-app:~$ <span className='console-cursor' />
