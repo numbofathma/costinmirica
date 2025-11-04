@@ -172,46 +172,41 @@ const ContactFrom = () => {
     [state],
   );
 
-  const handleFormSubmit = useCallback(
-    (data: FormData) => {
-      if (!recaptchaToken) {
-        setState((prevState) => ({
-          ...prevState,
-          errors: { recaptcha: missingToken },
-        }));
-        return;
-      }
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-      if (!contactFormValidator.validate(state) || state.phone) {
-        setState((prevState) => ({
-          ...prevState,
-          phone: '',
-          errors: {
-            recaptcha: undefined,
-            ...contactFormValidator.getErrors(),
-          },
-        }));
-        return;
-      }
+    const data = new FormData(e.currentTarget);
 
-      data.set('recaptchaToken', recaptchaToken);
+    if (!recaptchaToken) {
+      setState((prevState) => ({
+        ...prevState,
+        errors: { recaptcha: missingToken },
+      }));
+      return;
+    }
 
-      startTransition(() => {
-        formAction(data);
-      });
-    },
-    [formAction, state, missingToken, recaptchaToken],
-  );
+    if (!contactFormValidator.validate(state) || state.phone) {
+      setState((prevState) => ({
+        ...prevState,
+        phone: '',
+        errors: {
+          recaptcha: undefined,
+          ...contactFormValidator.getErrors(),
+        },
+      }));
+      return;
+    }
+
+    data.set('recaptchaToken', recaptchaToken);
+
+    startTransition(() => {
+      formAction(data);
+    });
+  };
 
   return (
     <div>
-      <form
-        onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          const formData = new FormData(e.currentTarget);
-          handleFormSubmit(formData);
-        }}
-      >
+      <form onSubmit={handleFormSubmit}>
         <div>
           <Header level={2} className='mb-10 text-xl md:text-2xl'>
             {sectionTitle}
