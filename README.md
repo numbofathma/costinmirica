@@ -4,7 +4,7 @@
 
 ## What's inside:
 
-- [Next.js 15.0.2](https://nextjs.org/)
+- [Next.js 16.0.1](https://nextjs.org/)
 - [Resend](https://resend.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Google Fonts](https://fonts.google.com)

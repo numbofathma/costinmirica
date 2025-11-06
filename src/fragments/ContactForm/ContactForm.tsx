@@ -58,18 +58,6 @@ const ContactFrom = () => {
   const { contactForm: contactFormPlaceholders } = LangVars.Placeholders;
   const { contactForm: contactFormButtons } = LangVars.Buttons;
 
-  // Load reCAPTCHA script
-  useEffect(() => {
-    if (!document.getElementById('recaptcha-v3')) {
-      const script = document.createElement('script');
-      script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-      script.async = true;
-      script.defer = true;
-      script.id = 'recaptcha-v3';
-      document.body.appendChild(script);
-    }
-  }, []);
-
   const executeRecaptcha = useCallback(async () => {
     if (window.grecaptcha) {
       try {
