@@ -38,6 +38,8 @@ export const LangVars = {
     itemAlt: 'Check our awesome game',
     itemTitle: 'Check out some in-game screenshots of',
     itemActionText: 'IN-GAME SCREENSHOTS',
+    genericItemTitle: 'Check out this project',
+    genericItemActionText: 'CHECK IT OUT',
   },
   CookieBanner: {
     agreementText: 'We use cookies to collect anonymous analytics data to improve our site.\nDo you consent to tracking?',

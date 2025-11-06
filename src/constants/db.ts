@@ -44,6 +44,12 @@ export const projects: IProject[] = [
       '13 Arrows is a hyper-casual archery game for those moments when you are bored, built with Typescript and Phaser Framework.' +
       ' Try your best to get a higher score using the arrows you have at your disposal.',
   },
+  {
+    title: 'Do you like this template?',
+    url: 'https://github.com/numbofathma/costinmirica?referrer=cv',
+    icon: '',
+    text: 'If so, you can easily make a copy and customize it to your needs. Simply fork it from the link provided below and start experimenting right away.',
+  },
 ];
 
 export const socials: ISocial[] = [
