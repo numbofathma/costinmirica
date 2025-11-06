@@ -1,13 +1,14 @@
 import { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import Head from 'next/head';
+import Script from 'next/script';
 import { Inconsolata } from 'next/font/google';
-import { CDN_URL, DEV_MODE } from '@/constants';
+import { CDN_URL, DEV_MODE, RECAPTCHA_SITE_KEY } from '@/constants';
 import { LangVars } from '@/constants/lang';
 import { MetadataIconSizes } from '@/constants/icons';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
-import '@/styles/globals.scss';
 import CookieBanner from '@/components/CookieBanner';
+import '@/styles/globals.scss';
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
@@ -64,14 +65,15 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang='en'>
     <Head>
       <link rel='preconnect' href='https://fonts.googleapis.com' />
-      <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+      <link rel='preconnect' href='https://fonts.gstatic.com' />
       <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
       <link rel='dns-prefetch' href='https://www.google.com' />
-      {!DEV_MODE && <GoogleAnalytics />}
     </Head>
     <body className={`${inconsolata.className}`}>
       {children}
       <CookieBanner />
+      <Script id='recaptcha-v3' src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`} strategy='afterInteractive' />
+      {!DEV_MODE && <GoogleAnalytics />}
     </body>
   </html>
 );
