@@ -46,7 +46,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Do you like this template?',
-    url: 'https://github.com/numbofathma/costinmirica?referrer=cv',
+    url: 'https://github.com/numbofathma/costinmirica',
     icon: '',
     text: 'If so, you can easily make a copy and customize it to your needs. Simply fork it from the link provided below and start experimenting right away.',
   },
