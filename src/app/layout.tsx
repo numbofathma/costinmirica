@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
-import Head from 'next/head';
 import Script from 'next/script';
 import { Inconsolata } from 'next/font/google';
 import { CDN_URL, DEV_MODE, RECAPTCHA_SITE_KEY } from '@/constants';
@@ -63,12 +62,9 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang='en'>
-    <Head>
-      <link rel='preconnect' href='https://fonts.googleapis.com' />
-      <link rel='preconnect' href='https://fonts.gstatic.com' />
+    <head>
       <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
-      <link rel='dns-prefetch' href='https://www.google.com' />
-    </Head>
+    </head>
     <body className={`${inconsolata.className}`}>
       {children}
       <CookieBanner />
