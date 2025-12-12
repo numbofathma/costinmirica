@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "private": true,
   "dependencies": {
-    "next": "^16.0.7",
+    "next": "^16.0.9",
     "react": "^19",
     "react-dom": "^19",
     "resend": "^4.0.0",
